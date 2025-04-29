@@ -93,22 +93,45 @@ body {
   .resep-grid,
   .rekomendasi-grid {
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     justify-content: center;
   }
   
   .kategori-item {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 7px;
+    padding: 0.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .kategori-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
   
   .kategori-item img {
-    width: 100px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
   }
+  
+  .kategori-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  .kategori-label {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
   
   .kategori-item.green {
     background-color: #00c853;
@@ -131,7 +154,7 @@ body {
   }
   
   .resep-item img {
-    width: 100%;
+    width: 200px;
     border-radius: 8px;
   }
   
