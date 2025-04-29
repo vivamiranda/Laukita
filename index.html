@@ -8,36 +8,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-          <h1>Gaya hidup sehat dengan pola makan yang sehat</h1>
-          <input type="text" class="search-bar" placeholder="Cari Resep">
-        </div>
-      </header>
-      
-      <nav class="navbar">
-        <div class="logo">
-          <a href="#">
-            <img src="gambar/logobaru.png" alt="Logo LauKita">
-          </a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Resep Harian</a></li>
-          <li><a href="#">Kategori</a></li>
-          <li><a href="#">Rekomendasi Resep</a></li>
-        </ul>
-      </nav>
-      
-    
-    <section class="categories">
-        <h2 align="center">Kategori</h2>
-        <div class="category">
-            <div class="kategori-nusantara">Resep Masakan Nusantara</div>
-            <div class="kategori-barat">Resep Masakan Barat</div>
-            <div class="kategori-asia">Resep Masakan Asia</div>
-        </div>
-    </section>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Laukita">
+      <span>Laukita</span>
+    </div>
+    <nav class="nav-links">
+        <a href="#" class="active">HOME</a>
+        <a href="#">RESEP TERBARU</a>
+        <a href="#">REKOMENDASI</a>
+        <a href="login.html">LOGIN</a>
+        <a href="register.html">REGISTER</a>
+    </nav>
+  </header>
+
+  <!-- Search bar -->
+  <div class="search-container">
+    <div class="search-box">
+      <input type="text" placeholder="Cari Resep">
+      <i class="fa fa-search search-icon"></i>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <h2>Gaya hidup sehat dengan pola makan yang sehat</h2>
+  </div>
+
+  <!-- Kategori -->
+  <section class="section">
+    <h2 align="center">Kategori</h2>
+    <div class="kategori-grid">
+      <div class="kategori-item green"><img src="nasi_tumpeng.png" alt="Nasi"></div>
+      <div class="kategori-item yellow"><img src="pastry.png" alt="Pastry"></div>
+      <div class="kategori-item red"><img src="sup.png" alt="Sup"></div>
+    </div>
+  </section>
 
   <!-- Resep Terbaru -->
   <section class="section">
