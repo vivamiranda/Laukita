@@ -1,140 +1,279 @@
+/* Reset dan font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F9F9F9;
-    color: #333333;
+  background-color: #ffffff;
+  color: #333;
 }
-
-header {
-    background-color: #D8E2DC;
-    color: #34495e;
-    padding: 20px;
-    text-align: center;
-}
-
-input[type="text"] {
-    padding: 10px;
-    width: 200px;
-}
-
-.header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 20px;
-    background-color: #D8E2DC;
-    gap: 10px;
-}
-
-.search-bar {
-    padding: 10px;
-    width: 250px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px; 
-}
-
+/* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #A4C3B2; 
-    padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px; 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px; 
-    transition: background-color 0.3s;
-}
-
-.nav-links a:hover {
-    background-color: #8AA89F; 
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-links li {
-        text-align: center;
-        margin: 10px 0; 
-    }
-}
-
-.categories,
-.latest-recipes,
-.recommended-recipes {
-    margin: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.category {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.recipe {
-    display: inline-block;
-    margin: 50px;
-    text-align: center;
-}
-
-.recipe img {
-    width: 150px;
-    height: 100px;
-    border-radius: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-}
-
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.button-container button {
-    padding: 10px 20px;
-    background-color: #ADC178;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.button-container button:hover {
-    background-color: #A1B46C;
-}
-
-
 .logo img {
-    height: 40px;
-    width: auto;
+  width: 40px;
+  height: 40px;
 }
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.nav-links a.active {
+  color: #44B244;
+}
+/* Search bar */
+.search-container {
+  padding: 20px 50px;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #44B244;
+  border-radius: 8px;
+  padding: 10px;
+}
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+.search-icon {
+  color: #44B244;
+}
+/* Banner */
+.banner {
+  background-color: #e8f5e9;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  color: #44B244;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+/* Section */
+.section {
+  padding: 40px 50px;
+}
+.section h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+/* Kategori */
+.kategori-grid {
+  display: flex;
+  gap: 20px;
+}
+.kategori-item {
+  flex: 1;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.kategori-item img {
+  height: 60px;
+}
+.green {
+  background-color: #44B244;
+}
+.yellow {
+  background-color: #FFAE00;
+}
+.red {
+  background-color: #FF4F4F;
+}
+/* Resep Grid */
+.resep-grid,
+.rekomendasi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.resep-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+}
+.resep-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.resep-item .title {
+  margin-top: 10px;
+  font-weight: 600;
+}
+.resep-item .kalori {
+  color: #777;
+  font-size: 14px;
+}
+/* Tombol */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.btn-lihat {
+  background-color: #44B244;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* Footer */
+.footer {
+  background-color: #009432;
+  padding: 40px 50px 20px;
+}
+.tentang-kami .judul {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.tentang-kami p {
+  color: #fff;
+  margin-bottom: 20px;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+.footer-icons i {
+  margin-right: 10px;
+  color: #fff;
+}
+.footer .copyright {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+}
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  animation: slideUp 0.5s ease;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.75rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form label {
+  margin-bottom: 0.3rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.auth-form input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.auth-form input:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.auth-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-btn:hover {
+  background-color: #45a049;
+}
+
+.auth-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.auth-footer a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+

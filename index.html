@@ -1,95 +1,98 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>LauKita</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laukita</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-          <h1>Gaya hidup sehat dengan pola makan yang sehat</h1>
-          <input type="text" class="search-bar" placeholder="Cari Resep">
-        </div>
-      </header>
-      
-      <nav class="navbar">
-        <div class="logo">
-          <a href="#">
-            <img src="gambar/logobaru.png" alt="Logo LauKita">
-          </a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Resep Harian</a></li>
-          <li><a href="#">Kategori</a></li>
-          <li><a href="#">Rekomendasi Resep</a></li>
-        </ul>
-      </nav>
-      
-    
-    <section class="categories">
-        <h2 align="center">Kategori</h2>
-        <div class="category">
-            <div class="kategori-nusantara">Resep Masakan Nusantara</div>
-            <div class="kategori-barat">Resep Masakan Barat</div>
-            <div class="kategori-asia">Resep Masakan Asia</div>
-        </div>
-    </section>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Laukita">
+      <span>Laukita</span>
+    </div>
+    <nav class="nav-links">
+        <a href="#" class="active">HOME</a>
+        <a href="#">RESEP TERBARU</a>
+        <a href="#">REKOMENDASI</a>
+        <a href="login.html">LOGIN</a>
+        <a href="register.html">REGISTER</a>
+    </nav>
+  </header>
 
-    <section class="latest-recipes">
-        <h2 align="center">Resep Harian</h2>
-        <div class="recipe">
-            <img src="gambar/sate ayam madura.jpg" alt="Sate Ayam Madura">
-            <h3>Sate Ayam Madura</h3>
-            <p>Durasi: 30 menit</p>
-        </div>
-        <div class="recipe">
-            <img src="gambar/sayur asem.jpg" alt="Sayur Asem">
-            <h3>Sayur Asem</h3>
-            <p>Durasi: 20 menit</p>
-        </div>
-        <div class="recipe">
-            <img src="gambar/sambal cumi.jpg" alt="Sambal Cumi">
-            <h3>Sambal Cumi</h3>
-            <p>Durasi: 15 menit</p>
-        </div> 
-        <div class="recipe">
-            <img src="gambar/sup buntut.jpg" alt="Sup Buntut">
-            <h3>Sup Buntut</h3>
-            <p>Durasi: 25 menit</p>
-        </div>
-    </section>
+  <!-- Search bar -->
+  <div class="search-container">
+    <div class="search-box">
+      <input type="text" placeholder="Cari Resep">
+      <i class="fa fa-search search-icon"></i>
+    </div>
+  </div>
 
-    <section class="recommended-recipes">
-        <h2 align="center">Rekomendasi Resep</h2>
-        <div class="recipe">
-            <img src="gambar/ayam suwir.jpg" alt="Ayam Suwir">
-            <h3>Ayam Suwir</h3>
-        </div>
-        <div class="recipe">
-            <img src="gambar/ayam geprek.jpg" alt="Ayam Geprek">
-            <h3>Ayam Geprek</h3>
-        </div>
-        <div class="recipe">
-            <img src="gambar/nasi goreng.jpg" alt="Nasi Goreng">
-            <h3>Nasi Goreng</h3>
-        </div>
-        <div class="recipe">
-            <img src="gambar/rendang.jpg" alt="Rendang">
-            <h3>Rendang</h3>
-        </div><br>
-        
-        <div class="button-container">
-            <button>Lihat Selengkapnya</button>
-        </div>
-        
-    </section>
+  <!-- Banner -->
+  <div class="banner">
+    <h2>Gaya hidup sehat dengan pola makan yang sehat</h2>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 LauKita. All rights reserved.</p>
-    </footer>
-    
+  <!-- Kategori -->
+  <section class="section">
+    <h2 align="center">Kategori</h2>
+    <div class="kategori-grid">
+      <div class="kategori-item green"><img src="nasi_tumpeng.png" alt="Nasi"></div>
+      <div class="kategori-item yellow"><img src="pastry.png" alt="Pastry"></div>
+      <div class="kategori-item red"><img src="sup.png" alt="Sup"></div>
+    </div>
+  </section>
+
+  <!-- Resep Terbaru -->
+  <section class="section">
+    <h2 align="center">Resep Terbaru</h2>
+    <div class="resep-grid">
+      <div class="resep-item"><img src="ayam_asam.png" alt="Sate Ayam"><p class="title">Sate Ayam Asam Manis</p><p class="kalori">525 Kkal</p></div>
+      <div class="resep-item"><img src="sayur_asem.png" alt="Sayur Asem"><p class="title">Sayur Asem</p><p class="kalori">51 Kkal</p></div>
+      <div class="resep-item"><img src="tahu_tek.png" alt="Tahu Tek"><p class="title">Tahu Tek Surabaya</p><p class="kalori">1229 Kkal</p></div>
+      <div class="resep-item"><img src="sup_ikan.png" alt="Sup Ikan"><p class="title">Sup Ikan Tenggiri</p><p class="kalori">525 Kkal</p></div>
+    </div>
+  </section>
+
+  <!-- Rekomendasi Resep -->
+  <section class="section">
+    <h2 align="center">Rekomendasi Resep</h2>
+    <div class="rekomendasi-grid">
+      <div class="resep-item"><img src="ayam_geprek.png" alt="Ayam Geprek"><p class="title">Ayam Geprek Sambal Matah</p><p class="kalori">1170 Kkal</p></div>
+      <div class="resep-item"><img src="tumis_udang.png" alt="Tumis Udang"><p class="title">Tumis Sayur Udang</p><p class="kalori">188 Kkal</p></div>
+      <div class="resep-item"><img src="sup_bayam.png" alt="Sup Bayam"><p class="title">Sup Bayam Wortel</p><p class="kalori">1229 Kkal</p></div>
+      <div class="resep-item"><img src="sup_bakso.png" alt="Sup Bakso"><p class="title">Sup Bakso</p><p class="kalori">1067 Kkal</p></div>
+    </div>
+  </section>
+
+  <div class="btn-container">
+    <button class="btn-lihat">Lihat Selengkapnya</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="tentang-kami">
+      <p class="judul">Tentang Kami</p>
+      <p>Misi kami di Laukita adalah membuat memasak setiap hari menjadi menyenangkan...</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="#">Resep</a>
+        <a href="#">Syarat & Ketentuan</a>
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Kontak Kami</a>
+      </div>
+      <div class="footer-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+    </div>
+    <div class="copyright">&copy; 2024 Laukita. All rights reserved</div>
+  </footer>
 </body>
 </html>
