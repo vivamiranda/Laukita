@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar - Laukita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <h2 class="auth-title">Daftar Akun Laukita</h2>
+    <form class="auth-form" id="registerForm">
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+
+      <label for="password">Kata Sandi</label>
+      <input type="password" id="password" name="password" placeholder="********" required>
+
+      <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+
+      <button type="submit" class="auth-btn">Daftar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Kata sandi dan konfirmasi tidak cocok.");
+        return;
+      }
+
+      const user = { name, email, password };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      alert("Akun berhasil dibuat! Silakan login.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
