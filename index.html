@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <script>
+    // Cek apakah pengguna sudah login
+    const user = localStorage.getItem("user");
+    if (!user) {
+      // Jika tidak ada pengguna yang terdaftar, redirect ke halaman login
+      window.location.href = "login.html";
+    }
+  </script>
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">
@@ -18,8 +26,7 @@
         <a href="index.html">HOME</a>
         <a href="resep-terbaru.html">RESEP TERBARU</a>
         <a href="rekomendasi.html">REKOMENDASI</a>
-        <a href="upload.html" class="active">UPLOAD RESEP</a>
-        <a href="login.html">LOGIN</a>
+        <a href="profil.html"class="active">PROFIL</a>
     </nav>
   </header>
 
@@ -32,9 +39,9 @@
   </div>
 
   <!-- Banner -->
-  <div class="banner">
-    <h2>Gaya hidup sehat dengan pola makan yang sehat</h2>
-  </div>
+  <section class="hero-banner">
+    <div class="overlay"></div>
+  </section>
 
   <!-- Kategori -->
   <section class="section">

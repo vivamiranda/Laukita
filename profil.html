@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil & Upload Resep - Laukita</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Laukita" />
+      <span>Laukita</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="resep-terbaru.html">RESEP TERBARU</a>
+      <a href="rekomendasi.html">REKOMENDASI</a>
+      <a href="profil.html">PROFIL</a>
+    </nav>
+  </header>
+
+  <main class="section">
+    <div class="upload-container">
+      <h2>Profil Pengguna</h2>
+      <p><strong>Nama:</strong> <span id="nama-user">Anonim</span></p>
+      <p><strong>Email:</strong> <span id="email-user">-</span></p>
+      <button onclick="logout()">Keluar</button>
+
+      <hr style="margin: 2rem 0" />
+
+      <h3>Upload Resep Baru</h3>
+      <form class="upload-form" action="#" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="nama-resep">Nama Resep</label>
+          <input type="text" id="nama-resep" name="nama-resep" required>
+        </div>
+
+        <div class="form-group">
+          <label for="kategori">Kategori</label>
+          <select id="kategori" name="kategori" required>
+            <option value="nasi">Nasi</option>
+            <option value="pastry">Pastry</option>
+            <option value="sup">Sup</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="gambar">Upload Gambar</label>
+          <input type="file" id="gambar" name="gambar" accept="image/*" required>
+        </div>
+
+        <div class="form-group">
+          <label for="penulis">Nama Pembuat Resep</label>
+          <input type="text" id="penulis" name="penulis" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="deskripsi">Deskripsi / Cara Membuat</label>
+          <textarea id="deskripsi" name="deskripsi" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Upload Resep</button>
+      </form>
+    </div>
+
+    <section class="section">
+      <h3 align="center">Resep Saya</h3>
+      <div class="resep-grid" id="daftarResepSaya">
+        <!-- Resep yang diupload muncul di sini -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Ambil data dari localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("nama-user").textContent = user.name;
+      document.getElementById("email-user").textContent = user.email;
+      document.getElementById("penulis").value = user.name;
+    }
+
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+
+  if (!user) {
+    window.location.href = "login.html";
+  } else {
+    document.getElementById("nama-user").textContent = user.name;
+    document.getElementById("email-user").textContent = user.email;
+    document.getElementById("penulis").value = user.name;
+  }
+
+  function logout() {
+    localStorage.removeItem("user");
+    window.location.href = "login.html";
+  }
+
+  // Upload resep dan simpan ke localStorage
+  document.querySelector(".upload-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const namaResep = document.getElementById("nama-resep").value;
+    const kategori = document.getElementById("kategori").value;
+    const gambarInput = document.getElementById("gambar");
+    const penulis = document.getElementById("penulis").value;
+    const deskripsi = document.getElementById("deskripsi").value;
+
+    const file = gambarInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function () {
+      const gambarData = reader.result;
+
+      const resepBaru = {
+        namaResep,
+        kategori,
+        gambar: gambarData,
+        penulis,
+        deskripsi
+      };
+
+      const daftarResep = JSON.parse(localStorage.getItem("resepUser")) || [];
+      daftarResep.push(resepBaru);
+      localStorage.setItem("resepUser", JSON.stringify(daftarResep));
+
+      tampilkanResep();
+      this.reset();
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Tampilkan semua resep yang disimpan
+  function tampilkanResep() {
+    const daftarResep = JSON.parse(localStorage.getItem("resepUser")) || [];
+    const container = document.getElementById("daftarResepSaya");
+    container.innerHTML = "";
+
+    daftarResep.forEach((resep) => {
+      const card = document.createElement("div");
+      card.className = "resep-card";
+      card.innerHTML = `
+        <img src="${resep.gambar}" alt="${resep.namaResep}" class="resep-img">
+        <h4>${resep.namaResep}</h4>
+        <p><strong>Kategori:</strong> ${resep.kategori}</p>
+        <p><strong>Penulis:</strong> ${resep.penulis}</p>
+        <p>${resep.deskripsi}</p>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // Panggil saat halaman dimuat
+  window.onload = tampilkanResep;
+
+  </script>
+</body>
+</html>
