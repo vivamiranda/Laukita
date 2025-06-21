@@ -1,157 +1,171 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laukita</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setitik Asa Sejuta Makna - Charity</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <script>
-    // Cek apakah pengguna sudah login
-    const user = localStorage.getItem("user");
-    if (!user) {
-      // Jika tidak ada pengguna yang terdaftar, redirect ke halaman login
-      window.location.href = "login.html";
-    }
-  </script>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="logo.png" alt="Laukita">
-      <span>Laukita</span>
-    </div>
-     <nav class="nav-links">
-        <a href="index.html">HOME</a>
-        <a href="resep-terbaru.html">RESEP TERBARU</a>
-        <a href="rekomendasi.html">REKOMENDASI</a>
-        <a href="profil.html"class="active">PROFIL</a>
-    </nav>
-  </header>
+    <!-- TAMBAHAN BARU: Page Wrapper untuk semua konten -->
+    <div class="page-wrapper">
+        <!-- Header Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">CHARITY</div>
+                <ul class="nav-menu">
+                    <li><a href="./indek.html" class="active">Beranda</a></li>
+                    <li><a href="./donasi.html">Donasi</a></li>
+                    <li><a href="./detail-donasi.html">Detail donasi</a></li>
+                    <li><a href="./tentang-kami.html">Tentang Kami</a></li>
+                </ul>
+                <button class="profile-btn">PROFIL</button>
+            </div>
+        </nav>
 
-  <!-- Search bar -->
-  <div class="search-container">
-    <div class="search-box">
-      <input type="text" placeholder="Cari Resep">
-      <i class="fa fa-search search-icon"></i>
-    </div>
-  </div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-wrapper">
+            <div class="hero-container">
+                <h1>Setitik Asa<br>Sejuta Makna</h1>
+                <p>Mari bersama membantu kebaikan dan membantu sesama. Website ini merupakan platform pengalangan dana yang dikelola oleh mahasiswa Universitas Muhammadiyah Semarang sebagai bentuk nyata kepedulian terhadap masyarakat yang membutuhkan.</p>
+                
+                <div class="logo-section">
+                    <div class="logo-item">UNIMUS</div>
+                    <div class="logo-item">SEMA KM</div>
+                    <div class="logo-item">BEM KM</div>
+                    <div class="logo-item">SOSMAS</div>
+                </div>
+            </div>
+            </div>
+        </section>
 
-  <!-- Banner -->
-  <section class="hero-banner">
-    <div class="overlay"></div>
-  </section>
+        <!-- Main Content Section -->
+        <section class="main-content">
+            <div class="content-container">
+                <div class="image-placeholder">
+                    <div><img src="gambar/image1.png" ></div>
+                </div>
+                
+                <div class="content-text">
+                    <h2>Mengubah niat baik, Menjadi tindakan baik</h2>
+                    <p>"Setiap niat baik memiliki kekuatan untuk membawa perubahan. Melalui platform ini, kami mengajukan untuk menjadikan niat itu sebagai aksi nyata yang berdampak. Mulai dari memilih tujuan, mendaftar, hingga berdonasi — setiap langkahmu berarti bagi mereka yang membutuhkan. Bersama, kita bisa menciptakan dunia yang lebih peduli dan penuh harapan."</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">1</div>
+                            <div class="feature-text">Pengabdian masyarakat</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">2</div>
+                            <div class="feature-text">Platform Kolaborasi Mahasiswa</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">3</div>
+                            <div class="feature-text">Donasi Fleksibel</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">4</div>
+                            <div class="feature-text">Transparansi & Laporan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Kategori -->
-  <section class="section">
-    <h2>Kategori</h2>
-    <div class="kategori-grid">
-      <div class="kategori-item green">
-        <img src="gambar/nasi.png" alt="Nasi">
-        <p class="kategori-label">Nasi</p>
-      </div>
-      <div class="kategori-item yellow">
-        <img src="gambar/pastry.png" alt="Pastry">
-        <p class="kategori-label">Pastry</p>
-      </div>
-      <div class="kategori-item red">
-        <img src="gambar/sup.png" alt="Sup">
-        <p class="kategori-label">Sup</p>
-      </div>
-    </div>
-  </section>
+        <!-- Icon Section -->
+        <div class="nav-bar">
+            <div class="nav-icon"><img src="gambar/Logo1.png" alt="Logo 1" /></div>
+            <div class="nav-icon"><img src="gambar/Logo2.png" alt="Logo 2" /></div>
+            <div class="nav-icon"><img src="gambar/Logo3.png" alt="Logo 3" /></div>
+            <div class="nav-icon"><img src="gambar/Logo4.png" alt="Logo 4" /></div>
+            <div class="nav-icon"><img src="gambar/Logo5.png" alt="Logo 5" /></div>
+        </div>
 
-  <!-- Resep Terbaru -->
-  <section class="section">
-    <h2>Resep Terbaru</h2>
-    <div class="resep-grid">
-      <div class="resep-item">
-        <img src="gambar/sate ayam madura.jpg" alt="Sate Ayam">
-        <p class="title">Sate Ayam Asam Manis</p>
-        <p class="kalori">525 Kkal</p>
-      </div>
-      <div class="resep-item">
-        <img src="gambar/rendang.jpg" alt="Rendang">
-        <p class="title">Rendang</p>
-        <p class="kalori">751 Kkal</p>
-      </div>
-      <div class="resep-item">
-        <img src="gambar/sup buntut.jpg" alt="Sop Buntut">
-        <p class="title">Sop Buntut</p>
-        <p class="kalori">229 Kkal</p>
-      </div>
-      <div class="resep-item">
-        <img src="gambar/ayam suwir.jpg" alt="Ayam Suwir">
-        <p class="title">Ayam Suwir</p>
-        <p class="kalori">525 Kkal</p>
-      </div>
-    </div>
-  </section>
+        <!-- News and Blog Section -->
+        <section class="news-section">
+            <div class="section-header">
+                <h2>Latest News and Blog</h2>
+                <button class="more-news">MORE NEWS</button>
+            </div>
+            <div class="news-cards">
+                <div class="card">
+                    <div class="image-placeholder"> <img src="gambar/imagemore1.png" alt="Popular Charities" class="news-image" /></div>
+                    <div class="card-content">
+                        <h3>Where to Give Now</h3>
+                        <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-placeholder"> <img src="gambar/imagemore2.png" alt="Popular Charities" class="news-image" /></div>
+                    <div class="card-content">
+                        <h3>Popular Charities</h3>
+                        <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="image-placeholder"> <img src="gambar/imagemore3.png" alt="Popular Charities" class="news-image" /></div>
+                    <div class="card-content">
+                        <h3>Childcare Crisis</h3>
+                        <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Rekomendasi Resep -->
-  <section class="section">
-    <h2>Rekomendasi Resep</h2>
-    <div class="rekomendasi-grid">
-      <div class="resep-item">
-        <img src="nasi goreng.jpg" alt="nasi goreng">
-        <p class="title">nasi goreng</p>
-        <p class="kalori">1170 Kkal</p>
-      </div>
-      <div class="resep-item">
-        <img src="sup ikan tenggiri.jpg" alt="sup ikan tenggiri">
-        <p class="title">sup ikan tenggiri</p>
-        <p class="kalori">188 Kkal</p>
-      </div>
-      <div class="resep-item">
-        <img src="sup_bayam.png" alt="Sup Bayam">
-        <p class="title">Sup Bayam Wortel</p>
-        <p class="kalori">1229 Kkal</p>
-      </div>
-      <div class="resep-item">
-        <img src="sup_bakso.png" alt="Sup Bakso">
-        <p class="title">Sup Bakso</p>
-        <p class="kalori">1067 Kkal</p>
-      </div>
-    </div>
-  </section>
+        <!-- Projects by Region Section -->
+        <section class="projects-section">
+            <h2>Projects by Region</h2>
+            <p>Adipiscing in vitae nec posuere eget fringilla a morbi. Ultrices lacus turpis porta tempor faucibus ullamcorper massa tristique est. Nam quam arcu lacus dictum et dictum vitae in. In eu fusce nec non mattis semper faucibus nulla.</p>
+            <div class="map-placeholder">
+                <!-- Image of map goes here -->
+                <img src="gambar/Peta.png" alt="Projects Map">
+            </div>
+        </section>
 
-  <!-- Tombol Selengkapnya -->
-  <div class="btn-container">
-    <button class="btn-lihat">Lihat Selengkapnya</button>
-  </div>
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2>Our Gallery</h2>
+            <div class="gallery-container">
+                <img src="gambar/imagegalery1.png" alt="Gallery Image 1" class="gallery-item" />
+                <img src="gambar/imagegalery2.png" alt="Gallery Image 2" class="gallery-item" />
+                <img src="gambar/imagegalery3.png" alt="Gallery Image 3" class="gallery-item" />
+                <img src="gambar/imagegalery4.png" alt="Gallery Image 4" class="gallery-item" />
+                <img src="gambar/imagegalery5.png" alt="Gallery Image 5" class="gallery-item" />
+                <img src="gambar/imagegalery6.png" alt="Gallery Image 6" class="gallery-item" />
+            </div>
+        </section>
+    </div> <!-- Tutup page-wrapper di sini -->
 
-  <!-- Footer -->
-  <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <h4>Tentang Kami</h4>
-      <p>
-        Di Laukita, kami percaya bahwa lauk yang enak bisa menyatukan hati dan meja makan. 
-        Misi kami adalah menghadirkan solusi makanan rumahan yang lezat, praktis, dan penuh cinta.
-        Kami ingin membuat kegiatan memasak dan menikmati hidangan jadi lebih mudah dan menyenangkan
-        untuk semua orang — <b>karena lauk yang tepat, bisa membuat hari jadi lebih hangat.</b>
-      </p>
-    </div>
-    <div class="footer-right">
-      <ul>
-        <li><a href="#">Resep</a></li>
-        <li><a href="#">Syarat & Ketentuan</a></li>
-        <li><a href="#">Kebijakan Privasi</a></li>
-        <li><a href="#">Kontak Kami</a></li>
-      </ul>
-    </div>
-  </div>
+    <!-- Footer di luar page-wrapper -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>
+                    <strong>CHARITY</strong><br>
+                    Tricidunt luctus porta amet lectus at ultricies nec sed non. Sed sit egestas enim consectetur donec faucibus...<br>
+                    <strong>Phone:</strong> (610) 368-7883<br>
+                    <strong>Address:</strong> 8911 Tanglewood Ave. Capitol Heights, MD 20743
+                </p>
+            </div>
+            <div class="footer-icons">
+                <a href="#" class="social-icon ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-icon yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-links">
+                <p>Useful Links</p>
+                <ul>
+                    <li><a href="#">F.A.Q</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
-  <div class="footer-social">
-    <a href="#"><img src="gambar/fb.png" alt="Facebook" /></a>
-    <a href="#"><img src="gambar/ig.png" alt="Instagram" /></a>
-    <a href="#"><img src="gambar/yt.png" alt="YouTube" /></a>
-  </div>
-
-  <p class="copyright">
-    Copyright © 2025 Laukita. All rights reserved
-  </p>
-</footer>
 </body>
 </html>
