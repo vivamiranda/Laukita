@@ -1,0 +1,340 @@
+
+/* Root Variables */
+:root {
+  --primary-color: #ff7a00;
+  --dark-bg: #000;
+  --light-bg: #fff;
+  --text-main: #222;
+  --text-light: #666;
+  --accent: #e56c00;
+  --hover-bg: #111;
+}
+
+/* Reset & Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding-top: 80px; /* agar konten tidak ketutupan navbar */
+}
+
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--dark-bg);
+  color: #fff;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Navigation */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-color);
+  background-color: var(--hover-bg);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+/* Donate Button */
+.btn-donate {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-donate:hover {
+  background-color: var(--accent);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--dark-bg);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    padding: 20px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .btn-donate {
+    display: inline-block;
+    margin-top: 1rem;
+    align-self: flex-end;
+  }
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  padding: 4rem 0 2rem;
+}
+
+.page-title h1 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.page-title .description {
+  color: var(--text-light);
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Causes Section */
+.causes-section {
+  padding: 2rem 0 4rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.btn-outline {
+  border: 1px solid var(--dark-bg);
+  background: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-outline:hover {
+  background-color: var(--dark-bg);
+  color: #fff;
+}
+
+.causes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.cause-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cause-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.img-placeholder {
+  height: 180px;
+  background: linear-gradient(135deg, #ddd, #bbb);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Card Content */
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.card-body h3:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.card-body p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.btn-details {
+  padding: 0.5rem 1rem;
+  background: var(--dark-bg);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.btn-details:hover {
+  background-color: #333;
+}
+
+/* Footer */
+.footer {
+  background: var(--dark-bg);
+  color: #ccc;
+  padding: 3rem 0 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.footer-grid h4 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-grid li {
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-grid li:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 40px);
+  gap: 8px;
+}
+
+.thumb {
+  width: 40px;
+  height: 40px;
+  background: #444;
+  border-radius: 4px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Focus State (Accessibility) */
+a:focus,
+button:focus {
+  outline: 2px dashed var(--primary-color);
+  outline-offset: 4px;
+}
+
+/* Floating Donate Button */
+.floating-donate {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff7a00;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-decoration: none;
+  z-index: 1000;
+  display: none;
+}
+
+.floating-donate:hover {
+  background-color: #e56c00;
+}
+
+@media (max-width: 768px) {
+  .floating-donate {
+    display: inline-block;
+  }
+
+  .btn-donate {
+    display: none;
+  }
+}
