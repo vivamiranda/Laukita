@@ -1,11 +1,22 @@
-/* Reset dan Base Styles */
+/*
+ * ===========================================================================
+ * GOTO NGID - STYLESHEET UTAMA
+ * Versi: 1.0
+ * Deskripsi: Mengandung seluruh styling untuk website GotongID.
+ * ===========================================================================
+ */
+
+/* ===========================================
+   1. RESET DAN BASE STYLES
+   - Mengatur ulang properti CSS default browser untuk konsistensi.
+   - Mendefinisikan gaya dasar (font, warna teks, background) untuk seluruh halaman.
+   =========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* PERBAIKAN UTAMA - Tambahkan ini */
 html, body {
     height: 100%;
 }
@@ -14,22 +25,25 @@ body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fff;
+    background-color: #f8f9fa;
     margin: 0;
-    padding: 0; /* Hapus padding bottom yang lama */
+    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* TAMBAHAN BARU - Page wrapper */
+/* Page wrapper - Digunakan untuk membungkus konten utama agar footer tetap di bawah */
 .page-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Header Navigation */
+/* ===========================================
+   2. NAVBAR - Navigasi Header Atas
+   - Styling untuk bilah navigasi utama di bagian paling atas halaman.
+   =========================================== */
 .navbar {
     background: rgba(0, 0, 0, 0.9);
     padding: 1rem 0;
@@ -105,7 +119,10 @@ body {
     box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
 }
 
-/* Hero Section */
+/* ===========================================
+   3. HERO SECTION - Bagian Pembuka Halaman Beranda
+   - Styling untuk area hero/banner utama di halaman beranda.
+   =========================================== */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Gambar/Backround.png');
     background-size: cover;
@@ -152,7 +169,10 @@ body {
     transform: translateY(-3px);
 }
 
-/* Main Content */
+/* ===========================================
+   4. MAIN CONTENT - Konten Utama Halaman (Umum)
+   - Gaya umum untuk bagian konten utama di luar hero section.
+   =========================================== */
 .main-content {
     padding: 5rem 0;
     background: #ffffff;
@@ -169,13 +189,14 @@ body {
 }
 
 /* ===========================================
-   ABOUT PAGE STYLES - TENTANG KAMI
+   5. ABOUT PAGE STYLES - Halaman "Tentang Kami"
+   - Styling khusus untuk elemen-elemen di halaman "Tentang Kami".
    =========================================== */
 
-/* Page Content untuk Tentang Kami */
+/* Konten Utama Halaman "Tentang Kami" */
 .page-content {
     padding: 6rem 0 4rem;
-    background: #ffffff;
+    background: #f8f9fa;
     flex: 1;
 }
 
@@ -185,127 +206,254 @@ body {
     padding: 0 2rem;
 }
 
-/* Page Title */
+/* Judul Utama Halaman */
 .page-title {
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 3rem;
-    padding-top: 2rem;
 }
 
+/* Container untuk Kartu "Apa itu GotongID" & "Kami Percaya" (2 Kolom) */
 .about-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
 }
 
+/* Styling untuk Setiap Kartu "Tentang Kami" */
 .about-card {
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
 }
 
 .about-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
 }
-
-/* Light Card - Semua kartu putih */
-.light-card {
-    background: #ffffff;
-    color: #333;
-    border: 1px solid #e0e0e0;
-}
-
-/* Dark Card - Hapus karena semua putih */
-.dark-card {
-    background: #ffffff;
-    color: #333;
-    border: 1px solid #e0e0e0;
-}
-
-/* Hapus card-icon karena tidak digunakan */
 
 .about-card h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 1rem;
     text-align: center;
+    color: #ff6b35;
 }
 
 .about-card p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     text-align: justify;
+    color: #555;
     margin: 0;
 }
 
-.light-card h2,
-.dark-card h2 {
-    color: #2c3e50;
+/* Blok Konten Umum (untuk Visi & Misi, Bagaimana Kami Bekerja, Dampak Positif) */
+.section-block {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 3rem;
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
-.light-card p,
-.dark-card p {
+.section-block h2 {
+    color: #ff6b35;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.section-block p {
     color: #555;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* Styling untuk list di "Bagaimana GotongID Bekerja?" (Jika nanti diubah ke list) */
+.section-block ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: my-awesome-counter;
+}
+
+.section-block ol li {
+    background-color: #fdf5f0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: #444;
+    position: relative;
+    padding-left: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-block ol li::before {
+    content: counter(my-awesome-counter);
+    counter-increment: my-awesome-counter;
+    font-weight: bold;
+    color: white;
+    background-color: #ff6b35;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    flex-shrink: 0;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Bagian Call to Action (CTA) - "Bergabunglah Bersama Kami!" */
+.cta-section {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 3rem;
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    color: #ff6b35;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.cta-item {
+    flex: 1;
+    min-width: 280px;
+    max-width: 45%;
+    background-color: #fdf5f0;
+    border: 1px solid #ff6b35;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.cta-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.2);
+}
+
+.cta-item h3 {
+    color: #333;
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.cta-item p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Tombol Umum (misal untuk "Donasi Sekarang") */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn {
+    background-color: #ff6b35;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #e65c2f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
 }
 
 /* ===========================================
-   END ABOUT PAGE STYLES
-   =========================================== */
-
-/* ===========================================
-   HERO SECTION IMAGE - Gambar di bagian atas
+   6. HERO IMAGE (General Purpose - Elemen Gambar Besar selain Hero Utama)
+   - Styling untuk elemen gambar besar yang dapat digunakan di berbagai halaman,
+     misalnya sebagai banner di halaman 'Tentang Kami'.
+   - REVISI: Menghapus garis putus-putus.
    =========================================== */
 .hero-image {
     height: 380px;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: linear-gradient(135deg, #FF6B35, #FF9933); /* Warna placeholder */
+    margin-bottom: 3rem;
 }
 
 .hero-image:hover {
     transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.4);
 }
 
 .hero-image::before {
+    /* MENGHAPUS GARIS PUTUS-PUTUS DENGAN MENGHAPUS PROPERTI BORDER */
     content: '';
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 2px dashed rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
+    top: 0; /* Ubah ke 0 agar tidak ada padding dari border */
+    left: 0; /* Ubah ke 0 */
+    right: 0; /* Ubah ke 0 */
+    bottom: 0; /* Ubah ke 0 */
+    /* border: 2px dashed rgba(255, 255, 255, 0.6); <= BARIS INI DIHAPUS/DIKOMENTARI */
+    border-radius: 15px; /* Tetap pertahankan border-radius dari parent */
     pointer-events: none;
 }
 
-.hero-image::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -70%);
-    font-size: 3rem;
-    opacity: 0.7;
-}
-
 /* ===========================================
-   SIMPLE NEWS SECTION - Foto Besar + Deskripsi Simple
+   7. SIMPLE NEWS SECTION (Bagian Berita Sederhana)
+   - Styling untuk bagian yang menampilkan berita atau artikel singkat.
    =========================================== */
-
 .news-section {
     padding: 60px 20px;
     background: #f8f9fa;
@@ -318,6 +466,7 @@ body {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto 40px;
+    padding: 0 2rem;
 }
 
 .section-header h2 {
@@ -349,10 +498,11 @@ body {
 
 .news-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .card {
@@ -369,28 +519,25 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* PERBAIKAN UTAMA - Container gambar yang lebih besar */
-.card .image-placeholder {
+.card .image-placeholder { /* Ini adalah placeholder untuk gambar di dalam kartu berita */
     width: 100%;
-    height: 250px; /* Diperbesar untuk foto yang lebih besar */
+    height: 250px;
     overflow: hidden;
     position: relative;
     background: #f0f0f0;
 }
 
-/* Gambar news yang mengisi penuh container */
 .news-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Foto akan mengisi penuh tanpa distorsi */
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
 .card:hover .news-image {
-    transform: scale(1.05); /* Zoom effect saat hover */
+    transform: scale(1.05);
 }
 
-/* Content area yang compact */
 .card-content {
     padding: 20px;
     text-align: left;
@@ -410,7 +557,6 @@ body {
     line-height: 1.6;
     margin: 0;
     text-align: justify;
-    /* Batasi teks agar tidak terlalu panjang */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -418,75 +564,13 @@ body {
 }
 
 /* ===========================================
-   RESPONSIVE DESIGN untuk News Section
+   8. BACKWARD COMPATIBILITY / GENERAL UTILITY STYLES
+   - Bagian ini berisi gaya untuk elemen-elemen yang mungkin digunakan di bagian lain situs
+     atau merupakan sisa dari versi sebelumnya.
+   - REVISI: Menghapus garis putus-putus.
    =========================================== */
-
-@media (max-width: 768px) {
-    .section-header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-    }
-    
-    .news-cards {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 0 10px;
-    }
-    
-    .card .image-placeholder {
-        height: 200px;
-    }
-    
-    .card-content {
-        padding: 18px;
-    }
-    
-    .card-content h3 {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .news-section {
-        padding: 40px 15px;
-    }
-    
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-    
-    .more-news {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .card .image-placeholder {
-        height: 180px;
-    }
-    
-    .card-content {
-        padding: 16px;
-    }
-    
-    .card-content h3 {
-        font-size: 1.1rem;
-    }
-    
-    .card-content p {
-        font-size: 0.9rem;
-        -webkit-line-clamp: 2; /* Lebih pendek di mobile */
-    }
-}
-
-/* ===========================================
-   BACKWARD COMPATIBILITY
-   =========================================== */
-/* Untuk backward compatibility, biarkan .image-placeholder menggunakan style hero-image */
+/* .image-placeholder: Asumsi ini adalah class untuk elemen gambar hero/banner di halaman lain
+   yang bukan .hero utama dan bukan juga gambar dalam kartu berita (.card .image-placeholder). */
 .image-placeholder {
     height: 380px;
     border-radius: 10px;
@@ -500,6 +584,7 @@ body {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s;
+    background: linear-gradient(135deg, #FF6B35, #FF9933);
 }
 
 .image-placeholder:hover {
@@ -507,25 +592,30 @@ body {
 }
 
 .image-placeholder::before {
+    /* MENGHAPUS GARIS PUTUS-PUTUS DENGAN MENGHAPUS PROPERTI BORDER */
     content: '';
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 2px dashed rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
+    top: 0; /* Ubah ke 0 */
+    left: 0; /* Ubah ke 0 */
+    right: 0; /* Ubah ke 0 */
+    bottom: 0; /* Ubah ke 0 */
+    /* border: 2px dashed rgba(255, 255, 255, 0.5); <= BARIS INI DIHAPUS/DIKOMENTARI */
+    border-radius: 15px; /* Tetap pertahankan border-radius dari parent */
     pointer-events: none;
 }
 
 .image-placeholder::after {
+    /* Jika ingin ada ikon atau teks di tengah, tambahkan content di sini */
+    /* content: '\f004'; */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
     font-size: 3rem;
     opacity: 0.7;
+    color: rgba(255, 255, 255, 0.8);
 }
+
 
 .content-text h2 {
     font-size: 2.5rem;
@@ -589,7 +679,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Bottom Navigation - HAPUS atau COMMENT jika tidak digunakan */
+/* Bottom Navigation (Hapus/Komentari jika tidak digunakan) */
 .bottom-nav {
     background: #333;
     padding: 1rem 0;
@@ -638,7 +728,7 @@ body {
     border: none;
 }
 
-.nav-bar {
+.nav-bar { /* Asumsi ini untuk navigasi khusus (mungkin di hero section) */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -646,7 +736,7 @@ body {
     gap: 200px;
 }
 
-/* Tambahan: Ikon dan Berita */
+/* Icon Section (Bagian ikon/logo di beberapa halaman) */
 .icon-section {
     display: flex;
     justify-content: center;
@@ -658,71 +748,14 @@ body {
     gap: 30px;
 }
 
-.icon {
+.icon { /* Styling untuk setiap ikon */
     width: 40px;
     height: 40px;
     background-color: #ccc;
     border-radius: 50%;
 }
 
-.news-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto 30px;
-}
-
-.section-header h2 {
-    font-size: 24px;
-}
-
-.more-news {
-    padding: 8px 16px;
-    border: 1px solid #000;
-    background: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.news-cards {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.card {
-    width: 320px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.new-image {
-    width: 100%;
-    height: 100px;
-    background-color: #ddd;
-}
-
-.card-content {
-    padding: 15px;
-    text-align: left;
-}
-
-.card-content h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-/* Projects */
+/* Projects Section */
 .projects-section {
     padding: 40px 20px;
     text-align: center;
@@ -738,7 +771,7 @@ body {
     margin: 0 auto 30px;
 }
 
-.map-placeholder img {
+.map-placeholder img { /* Placeholder untuk gambar peta */
     width: 100%;
     max-width: 1000px;
     height: auto;
@@ -746,8 +779,11 @@ body {
     margin: 0 auto;
 }
 
-/*CSS GALERY - PERBAIKAN UKURAN FOTO*/
-.gallery-section { 
+/* ===========================================
+   9. GALLERY SECTION - Galeri Foto
+   - Styling untuk bagian galeri gambar.
+   =========================================== */
+.gallery-section {
     text-align: center;
     padding: 60px 20px;
 }
@@ -771,8 +807,8 @@ body {
 
 .gallery-item {
     width: 100%;
-    height: 250px; /* Tinggi tetap untuk semua gambar */
-    object-fit: cover; /* Memastikan gambar terpotong dengan proporsi yang baik */
+    height: 250px;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -784,12 +820,15 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/*BAGIAN BAWAH - PERBAIKAN FOOTER*/
+/* ===========================================
+   10. FOOTER - Bagian Bawah Halaman
+   - Styling untuk footer website.
+   =========================================== */
 .footer {
     background-color: #111;
     color: #fff;
     padding: 40px 20px;
-    margin-top: auto; /* INI YANG PENTING - Mendorong footer ke bawah */
+    margin-top: auto;
 }
 
 .footer-content {
@@ -850,7 +889,10 @@ body {
     color: #ff6b35;
 }
 
-/* Responsive Design */
+/* ===========================================
+   11. RESPONSIVE DESIGN - Media Queries
+   - Menyesuaikan tampilan situs untuk berbagai ukuran layar (tablet, mobile).
+   =========================================== */
 @media (max-width: 1024px) {
     .content-container {
         gap: 3rem;
@@ -927,6 +969,41 @@ body {
         font-size: 0.9rem;
     }
 
+    /* Penyesuaian untuk Section Blocks & CTA di Tablet */
+    .section-block {
+        padding: 2rem 1.5rem;
+        margin: 0 auto 2rem;
+    }
+    .section-block h2 {
+        font-size: 1.8rem;
+    }
+    .section-block ol li {
+        padding-left: 45px;
+    }
+    .section-block ol li::before {
+        width: 25px;
+        height: 25px;
+        font-size: 1em;
+    }
+    .cta-section {
+        padding: 2rem 1.5rem;
+        margin: 0 auto 2rem;
+    }
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .cta-item {
+        max-width: 100%;
+        padding: 2rem;
+    }
+    .cta-item h3 {
+        font-size: 1.4rem;
+    }
+
     /* Responsive untuk Gallery */
     .gallery-container {
         grid-template-columns: repeat(2, 1fr);
@@ -941,6 +1018,7 @@ body {
     /* Responsive untuk hero-image dan news-image */
     .hero-image {
         height: 300px;
+        font-size: 1.4rem;
     }
     
     .news-image {
@@ -957,12 +1035,21 @@ body {
         font-size: 1.8rem;
     }
 
+    /* Perbaikan: .image-placeholder dan .hero-image */
     .image-placeholder {
-        height: 300px;
-    }
-
-    .hero-image {
         height: 250px;
+    }
+    .hero-image {
+        height: 200px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+    }
+    .hero-image::before {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 15px;
     }
     
     .news-image {
@@ -978,7 +1065,7 @@ body {
         min-width: 45px;
     }
 
-    /* Responsive untuk About Page - Mobile */
+    /* Responsive untuk About Page - Mobile Kecil */
     .about-card {
         padding: 1.5rem;
     }
@@ -988,14 +1075,35 @@ body {
         padding-top: 1rem;
     }
 
-    /* Responsive untuk Gallery - Mobile */
+    /* Responsive untuk Section Blocks & CTA di Mobile Kecil */
+    .section-block {
+        padding: 1.5rem;
+    }
+    .section-block h2 {
+        font-size: 1.5rem;
+    }
+    .cta-section {
+        padding: 1.5rem;
+    }
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+    .cta-item h3 {
+        font-size: 1.2rem;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive untuk Gallery - Mobile Kecil */
     .gallery-container {
         grid-template-columns: 1fr;
         gap: 15px;
     }
     
     .gallery-item {
-        height: 250px;
+        height: 200px;
     }
     
     .gallery-section h2 {
