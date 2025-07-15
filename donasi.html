@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GotongID - Donasi</title>
   <link rel="stylesheet" href="donasi-style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="donasi-page">
   <header class="navbar">
     <div class="container">
-      <div class="logo">GotongID</div>
+      <div class="logo">
+        <img src="gambar/Logo U.png" alt="GotongID Logo">
+      </div>
 
       <!-- Tombol hamburger -->
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -31,8 +34,8 @@
     <section class="page-title">
       <div class="container">
         <p id="breadcrumb"></p>
-        <h1>Donate Today: Save a Life</h1>
-        <p class="description">Libero dictum ut purus ut vel sit egestas. Ut ac mattis senectus ac suspendisse vitae vel nulla eleifend...</p>
+        <h1>Ulurkan Tanganmu Hari Ini</h1>
+        <p class="description">Satu donasi kecil dari Anda bisa menjadi harapan besar bagi mereka yang membutuhkan. Mari bergerak bersama untuk kebaikan.</p>
       </div>
     </section>
 
@@ -59,36 +62,27 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>GotongID</h4>
-        <p>Tincidunt luctus porta amet lectus ut ultricies nec sed non...</p>
-        <p><strong>Phone:</strong> (610) 386-7883</p>
-        <p><strong>Address:</strong> 8911 Tanglewood Ave. Capitol Heights, MD 20743</p>
-      </div>
-      
-      <div>
-        <h4>Useful Links</h4>
-        <ul>
-          <li>F.A.Q</li>
-          <li>News</li>
-          <li>Reports</li>
-          <li>Terms of Use</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Causes</h4>
-        <div class="thumbnail-grid">
-          <div class="thumb"></div>
-          <div class="thumb"></div>
-          <div class="thumb"></div>
-          <div class="thumb"></div>
+  <footer class="get-in-touch-footer">
+    <div class="footer-inner-container">
+        <div class="footer-left-content">
+            <h2>Yuk, Sapa GotongID!</h2>
+            <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID? 
+                Kami siap mendengarkan. Mari bersama membangun dampak positif!</p>
+            <div class="footer-social-icons">
+                <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@yourprofile" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/yourchannel" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 GotongID. Design by Figma.guru</p>
+
+        <div class="footer-right-cards">
+            <div class="contact-card">
+                <i class="fas fa-globe"></i> <span>dribbble.com/example</span>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i> <span>contact@example.com</span>
+            </div>
+        </div>
     </div>
   </footer>
 
@@ -113,11 +107,8 @@
 
     // Dynamic breadcrumb
     const bread = {
-      "index.html": "Home > Beranda",
-      "donasi.html": "Home > Donasi",
-      "detail-donasi.html": "Home > Detail Donasi",
-      "tentang-kami.html": "Home > Tentang Kami",
-      "": "Home > Beranda"
+      "donasi.html": "Beranda > Donasi",
+      "": "Beranda"
     };
     const currentPath = location.pathname.split("/").pop();
     document.getElementById("breadcrumb").textContent = bread[currentPath] || "Home";
