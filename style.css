@@ -42,16 +42,17 @@ body {
 
 /* ===========================================
    2. NAVBAR - Navigasi Header Atas
-   - Styling untuk bilah navigasi utama di bagian paling atas halaman.
    =========================================== */
 .navbar {
     background: rgba(0, 0, 0, 0.9);
-    padding: 1rem 0;
+    min-height: 80px; /* Sesuaikan angka ini. Ini akan menjadi tinggi minimal navbar. */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    display: flex; /* Tambahkan ini */
+    align-items: center; 
 }
 
 .nav-container {
@@ -60,31 +61,27 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 2rem; 
+    width: 100%; 
 }
 
 .logo {
+    height: 85px; /* Sesuaikan tinggi logo Anda di sini, misalnya 60px */
     display: flex;
     align-items: center;
-    height: 60px; /* Sesuaikan tinggi logo sesuai kebutuhan Anda */
 }
 
 .logo::before {
-    /* Hapus atau komentari properti ini jika Anda tidak ingin ikon hati lagi */
-    /* content: "♥"; */
-    /* margin-right: 0.5rem; */
-    /* color: #ff6b35; */
-    /* font-size: 1.8rem; */
-    content: none; /* Pastikan pseudo-elemen tidak menampilkan apa-apa */
+    content: none; 
 }
 
-/* Tambahkan gaya baru untuk gambar logo */
 .logo img {
-    height: 100%; /* Pastikan gambar mengisi tinggi elemen .logo */
-    width: auto; /* Sesuaikan lebar secara proporsional */
-    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+    height: 100%; 
+    width: auto; 
+    display: block;
 }
 
+/* Pastikan juga Anda memiliki gaya untuk .nav-menu dan .profile-btn seperti sebelumnya */
 .nav-menu {
     display: flex;
     list-style: none;
