@@ -64,18 +64,25 @@ body {
 }
 
 .logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
     display: flex;
     align-items: center;
+    height: 60px; /* Sesuaikan tinggi logo sesuai kebutuhan Anda */
 }
 
 .logo::before {
-    content: "♥";
-    margin-right: 0.5rem;
-    color: #ff6b35;
-    font-size: 1.8rem;
+    /* Hapus atau komentari properti ini jika Anda tidak ingin ikon hati lagi */
+    /* content: "♥"; */
+    /* margin-right: 0.5rem; */
+    /* color: #ff6b35; */
+    /* font-size: 1.8rem; */
+    content: none; /* Pastikan pseudo-elemen tidak menampilkan apa-apa */
+}
+
+/* Tambahkan gaya baru untuk gambar logo */
+.logo img {
+    height: 100%; /* Pastikan gambar mengisi tinggi elemen .logo */
+    width: auto; /* Sesuaikan lebar secara proporsional */
+    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
 }
 
 .nav-menu {
@@ -119,6 +126,7 @@ body {
     box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
 }
 
+
 /* ===========================================
    3. HERO SECTION - Bagian Pembuka Halaman Beranda
    - Styling untuk area hero/banner utama di halaman beranda.
@@ -134,6 +142,8 @@ body {
     padding-top: 80px;
     position: relative;
     overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .hero-wrapper {
@@ -413,7 +423,6 @@ body {
    6. HERO IMAGE (General Purpose - Elemen Gambar Besar selain Hero Utama)
    - Styling untuk elemen gambar besar yang dapat digunakan di berbagai halaman,
      misalnya sebagai banner di halaman 'Tentang Kami'.
-   - REVISI: Menghapus garis putus-putus.
    =========================================== */
 .hero-image {
     height: 380px;
