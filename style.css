@@ -129,7 +129,7 @@ body {
     - Styling untuk area hero/banner utama di halaman beranda.
     =========================================== */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Gambar/Backround.png');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Gambar/backround2.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -178,7 +178,6 @@ body {
 
 /* ===========================================
     4. MAIN CONTENT - Konten Utama Halaman (Umum)
-    - Gaya umum untuk bagian konten utama di luar hero section.
     =========================================== */
 .main-content {
     padding: 5rem 0;
@@ -190,11 +189,67 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    /* UBAH INI: Sesuaikan grid-template-columns agar gambar bisa lebih besar */
+    /* Misalnya, berikan rasio 1.2fr untuk gambar dan 1fr untuk teks */
+    grid-template-columns: 1.2fr 1fr; /* <--- UBAH INI */
+    gap: 3rem; /* <--- KECILKAN SEDIKIT GAP, atau sesuaikan */
     align-items: center;
 }
 
+.main-content .image-placeholder { /* Ini adalah wadah gambar di main-content */
+    /* UBAH INI: Perbesar tinggi wadah gambar */
+    height: 450px; /* <--- UBAH TINGGI INI (misal dari 380px menjadi 450px) */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    background: linear-gradient(135deg, #FF6B35, #FF9933);
+
+    /* Pastikan pengaturan gambar animasi donasi tetap seperti yang kita sepakati: */
+    background-image: url('gambar/imagemore3.png'); /* Ganti dengan path ke gambar animasi donasi */
+    background-size: contain; /* Ini akan memastikan gambar tidak terpotong dan terlihat penuh */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-content .image-placeholder:hover {
+    transform: translateY(-10px);
+}
+
+.main-content .image-placeholder img {
+    /* Pastikan ini tetap disembunyikan jika kamu menggunakan background-image */
+    display: none;
+}
+
+.content-text {
+    /* Tidak ada perubahan besar di sini, tetapi mungkin akan sedikit menyesuaikan ruang */
+}
+
+/* Pastikan juga untuk mengecek di media queries, agar tidak rusak di responsif */
+@media (max-width: 1024px) {
+    .content-container {
+        /* Kembalikan rasio default atau sesuaikan untuk tablet */
+        grid-template-columns: 1fr 1fr; /* Bisa dipertahankan 1fr 1fr */
+        gap: 3rem; /* Biarkan atau sesuaikan */
+    }
+    .main-content .image-placeholder {
+        height: 380px; /* Kembalikan ke ukuran normal di tablet, atau sesuaikan */
+    }
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        grid-template-columns: 1fr; /* Akan menumpuk di mobile */
+        gap: 2rem;
+    }
+    .main-content .image-placeholder {
+        height: 300px; /* Sesuaikan tinggi di mobile */
+    }
+}
 /* ===========================================
     5. ABOUT PAGE STYLES - Halaman "Tentang Kami"
     - Styling khusus untuk elemen-elemen di halaman "Tentang Kami".
@@ -786,12 +841,11 @@ body {
 
 /* ===========================================
     9. DAMPAK KEBAIKAN KITA SECTION (Pengganti Galeri)
-    - Styling untuk bagian yang menampilkan cerita dampak positif dengan layout gambar kiri, teks kanan.
     =========================================== */
 .dampak-kebaikan-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #f8f8f8; /* Latar belakang section */
+    background-color: #f8f8f8;
 }
 
 .dampak-kebaikan-section h2 {
@@ -802,52 +856,75 @@ body {
 }
 
 .dampak-kebaikan-container {
-    max-width: 1000px; /* Lebar maksimal container kartu */
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Kartu akan tersusun vertikal */
-    gap: 40px; /* Jarak antar kartu */
-    padding: 0 15px; /* Padding samping */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    /* align-items: flex-start; */ /* HAPUS ATAU KOMENTARI INI */
+    align-items: stretch; /* <--- UBAH KE INI: Penting agar semua item (kartu) memiliki tinggi yang sama */
+    gap: 20px;
+    padding: 0 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 15px;
 }
 
 .dampak-kebaikan-card {
-    background-color: #fff;
-    border-radius: 15px; /* Sudut membulat */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Bayangan */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    display: flex; /* Untuk layout gambar-teks dalam satu baris */
-    align-items: center; /* Pusatkan vertikal */
-    padding: 25px; /* Padding di dalam kartu */
-    gap: 30px; /* Jarak antara gambar dan teks */
-    flex-wrap: wrap; /* Agar responsif di mobile */
-    flex-direction: row; /* **Gambar selalu di kiri, teks di kanan** */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */ /* HAPUS INI JIKA KAMU INGIN TEKS DI KIRI/KANAN SECARA DEFAULT */
+    justify-content: space-between; /* <--- TAMBAHKAN INI: Untuk mendorong konten atas & bawah ke tepi */
+    padding: 25px;
+    gap: 15px;
+    flex-shrink: 0;
+    width: 350px;
+    text-align: center; /* Pertahankan ini jika kamu ingin teks tetap terpusat */
+    scroll-snap-align: start;
+}
+
+.dampak-kebaikan-card.reverse-layout {
+    flex-direction: column;
 }
 
 .dampak-kebaikan-image-wrapper {
-    flex: 1; /* Mengambil ruang yang tersedia */
-    min-width: 250px; /* Lebar minimum sebelum wrap */
-    max-width: 40%; /* Mengambil sekitar 40% lebar untuk gambar */
-    border-radius: 10px; /* Sudut membulat untuk gambar */
-    overflow: hidden; /* Memastikan gambar tidak keluar dari radius */
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* <--- TAMBAHKAN SEDIKIT JARAK DARI JUDUL DI BAWAHNYA */
 }
 
 .dampak-kebaikan-image-wrapper img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
-    border-radius: 10px; /* Penting agar gambar juga membulat */
+    display: block;
+    border-radius: 10px;
 }
 
 .dampak-kebaikan-text-content {
-    flex: 1; /* Mengambil ruang yang tersedia untuk teks */
-    min-width: 300px; /* Lebar minimum sebelum wrap */
-    max-width: 60%; /* Mengambil sekitar 60% lebar untuk teks */
-    text-align: left;
+    flex: 1; /* <--- PENTING: Membuat text-content mengambil sisa ruang yang tersedia */
+    width: 100%;
+    text-align: center;
+    display: flex; /* <--- TAMBAHKAN: untuk mengatur konten dalam text-content */
+    flex-direction: column; /* <--- TAMBAHKAN: judul dan paragraf menumpuk */
+    justify-content: flex-start; /* <--- TAMBAHKAN: judul di atas */
+    /* Hapus align-items dan text-align di sini jika ingin tetap di tengah, */
+    /* tapi jika text-align: center; sudah di .dampak-kebaikan-card, itu akan mewarisi */
 }
 
 .dampak-kebaikan-text-content h3 {
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: #333;
     margin-bottom: 10px;
     font-weight: bold;
@@ -855,10 +932,75 @@ body {
 }
 
 .dampak-kebaikan-text-content p {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #666;
     line-height: 1.7;
     margin: 0;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .dampak-kebaikan-container {
+        gap: 15px;
+    }
+    .dampak-kebaikan-card {
+        width: 300px;
+        padding: 20px;
+        height: auto;
+    }
+    .dampak-kebaikan-image-wrapper {
+        height: 180px;
+    }
+    .dampak-kebaikan-text-content h3 {
+        font-size: 1.4em;
+    }
+    .dampak-kebaikan-text-content p {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 768px) {
+    .dampak-kebaikan-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 15px;
+        scroll-padding: 15px;
+        align-items: stretch; /* Penting juga di mobile jika tetap horizontal scroll */
+    }
+    .dampak-kebaikan-card {
+        flex-direction: column;
+        width: 80%;
+        max-width: 320px;
+        padding: 15px;
+        scroll-snap-align: center;
+        justify-content: space-between; /* Pertahankan */
+    }
+    .dampak-kebaikan-card.reverse-layout {
+        flex-direction: column;
+    }
+    .dampak-kebaikan-image-wrapper {
+        height: 150px;
+    }
+    .dampak-kebaikan-text-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .dampak-kebaikan-card {
+        width: 90%;
+        padding: 12px;
+    }
+    .dampak-kebaikan-image-wrapper {
+        height: 120px;
+    }
+    .dampak-kebaikan-text-content h3 {
+        font-size: 1.3em;
+    }
+    .dampak-kebaikan-text-content p {
+        font-size: 0.8em;
+    }
 }
 
 /* ===========================================
@@ -868,7 +1010,7 @@ body {
 .get-in-touch-footer {
     background-color: #1a1a1a; /* Warna latar belakang hitam gelap */
     color: #e0e0e0; /* Warna teks terang */
-    padding: 4rem 2rem; /* Padding atas dan bawah */
+    padding: 1rem 2rem; /* Padding atas dan bawah */
     font-family: 'Segoe UI', sans-serif; /* Font yang konsisten */
     margin-top: auto; /* Memastikan footer berada di bawah konten */
 }
@@ -886,7 +1028,7 @@ body {
 .get-in-touch-footer .footer-left-content {
     flex: 2; /* Mengambil ruang lebih besar */
     min-width: 300px; /* Lebar minimum sebelum wrap */
-    max-width: 600px; /* Batasan lebar */
+    max-width: 500px; /* Batasan lebar */
 }
 
 .get-in-touch-footer h2 {
