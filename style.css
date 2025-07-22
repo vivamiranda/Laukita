@@ -335,7 +335,8 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    /* UBAH margin-bottom untuk jarak dengan grid baru */
+    margin-bottom: 2.5rem; /* Disesuaikan untuk jarak ke .how-it-works-grid */
     text-align: center;
 }
 
@@ -346,7 +347,66 @@ body {
     margin-bottom: 1rem;
 }
 
+/* --- GAYA BARU UNTUK "BAGAIMANA GOTONGID BEKERJA?" (How It Works Grid) --- */
+.how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom responsif */
+    gap: 2rem; /* Jarak antar kartu */
+    justify-content: center; /* Pusatkan kartu jika kurang dari 3 */
+}
+
+.how-it-works-item {
+    background-color: #f7f9fc;; /* Latar belakang kartu, lebih terang dari putih */
+    border: 1px solid #e0e7ed; /* Border tipis */
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+    transition: all 0.3s ease;
+}
+
+.how-it-works-item:hover {
+    transform: translateY(-5px); /* Efek sedikit naik saat hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: #ff6b35; /* Border berubah warna saat hover */
+}
+
+.how-it-works-icon {
+    width: 60px; /* Ukuran wadah ikon */
+    height: 60px;
+    background-color: #f7f9fc; /* Latar belakang lingkaran ikon */
+    border-radius: 50%; /* Membuat lingkaran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto; /* Pusatkan dan beri jarak bawah */
+}
+
+.how-it-works-icon i {
+    font-size: 2.2rem; /* Ukuran ikon */
+    color: #ff6b35; /* Warna ikon biru (sesuaikan jika ada warna utama lain) */
+    /* Jika ingin warna ikon sama dengan aksen oranye, ganti #007bff dengan #ff6b35 */
+}
+
+.how-it-works-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.how-it-works-item p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0; /* Hapus margin bawah default p */
+}
+/* --- AKHIR GAYA BARU --- */
+
+
 /* Styling untuk list di "Bagaimana GotongID Bekerja?" (Jika nanti diubah ke list) */
+/* Bagian ini mungkin tidak lagi relevan jika Anda sudah menggantinya dengan how-it-works-grid */
+/* Anda bisa menghapus blok CSS ini jika tidak lagi menggunakan <ol> <li> di HTML */
 .section-block ol {
     list-style: none;
     padding: 0;
@@ -469,6 +529,45 @@ body {
     background-color: #e65c2f;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* --- Responsive Adjustments for How It Works Grid --- */
+@media (max-width: 768px) {
+    .how-it-works-grid {
+        grid-template-columns: 1fr; /* Tumpuk menjadi 1 kolom di tablet/mobile */
+        gap: 1.5rem;
+    }
+
+    .how-it-works-item {
+        padding: 1.5rem;
+    }
+
+    .how-it-works-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .how-it-works-icon i {
+        font-size: 1.8rem;
+    }
+
+    .how-it-works-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .how-it-works-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-it-works-grid {
+        padding: 0 1rem; /* Tambahkan sedikit padding samping */
+    }
+    .how-it-works-item {
+        padding: 1rem;
+    }
 }
 
 /* ===========================================
