@@ -265,7 +265,7 @@ a, button {
 .get-in-touch-footer {
     background-color: #1a1a1a;
     color: #e0e0e0;
-    padding: 4rem 2rem;
+    padding: 1.5rem 2rem;
     margin-top: auto;
 }
 
@@ -397,6 +397,19 @@ a, button {
         width: 100%;
     }
 }
+
+/* Link dalam contact card */
+.footer-link {
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: #ff6b35;
+}
+
 
 /* Focus State (Accessibility) */
 a:focus,
