@@ -1112,20 +1112,12 @@ body {
     10. FOOTER - Bagian Bawah Halaman (GAYA UNTUK SEMUA FOOTER SAMA)
     - Styling baru untuk footer website dengan layout "Get in Touch".
     =========================================== */
-/* Footer */
 .get-in-touch-footer {
-<<<<<<< HEAD
     background-color: #1a1a1a; /* Warna latar belakang hitam gelap */
     color: #e0e0e0; /* Warna teks terang */
-    padding: 1rem 1rem; /* Padding atas dan bawah */
+    padding: 1.5rem 2rem; /* Menggunakan nilai padding yang lebih moderat */
     font-family: 'Segoe UI', sans-serif; /* Font yang konsisten */
     margin-top: auto; /* Memastikan footer berada di bawah konten */
-=======
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    padding: 1.5rem 2rem;
-    margin-top: auto;
->>>>>>> 544b52ef64f75ba3dc6f069623af6e1fcca79c91
 }
 
 .get-in-touch-footer .footer-inner-container {
@@ -1133,27 +1125,24 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 3rem;
+    align-items: flex-start; /* Mengatur alignment ke atas untuk konten kiri dan kanan */
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    gap: 3rem; /* Jarak antar kolom */
 }
 
 .get-in-touch-footer .footer-left-content {
-    flex: 2;
+    flex: 2; /* Mengambil ruang lebih besar */
     min-width: 300px;
-    max-width: 600px;
+    max-width: 500px; /* Disesuaikan agar tidak terlalu lebar */
+    display: flex; /* Mengaktifkan flexbox untuk menumpuk elemen di dalamnya */
+    flex-direction: column; /* Menumpuk elemen secara vertikal (judul, paragraf, ikon) */
+    align-items: flex-start; /* Sejajarkan konten ke kiri */
 }
 
 .get-in-touch-footer h2 {
-<<<<<<< HEAD
-    font-family: serif; /* Font serif untuk judul, seperti contoh gambar */
-    font-size: 2rem; /* Ukuran judul */
+    font-family: serif; /* Font serif untuk judul */
+    font-size: 2.5rem; /* Menggunakan ukuran yang lebih besar */
     color: #ffffff; /* Warna putih untuk judul */
-=======
-    font-family: serif;
-    font-size: 2.5rem;
-    color: #ffffff;
->>>>>>> 544b52ef64f75ba3dc6f069623af6e1fcca79c91
     margin-bottom: 1rem;
     line-height: 1.2;
 }
@@ -1161,18 +1150,13 @@ body {
 .get-in-touch-footer p {
     font-size: 1rem;
     line-height: 1.6;
-<<<<<<< HEAD
-    margin-bottom: 1rem; /* Jarak antara paragraf dan ikon */
-    color: #bbbbbb; /* Warna teks deskripsi yang sedikit lebih gelap dari putih */
-=======
-    margin-bottom: 2rem;
-    color: #bbbbbb;
->>>>>>> 544b52ef64f75ba3dc6f069623af6e1fcca79c91
+    margin-bottom: 2rem; /* Jarak antara paragraf dan ikon sosial di bawahnya */
+    color: #bbbbbb; /* Warna teks deskripsi */
 }
 
 .get-in-touch-footer .footer-social-icons {
-    display: flex;
-    gap: 1.2rem;
+    display: flex; /* Agar ikon sejajar horizontal */
+    gap: 1.2rem; /* Jarak antar ikon */
 }
 
 .footer-social-icons a {
@@ -1198,12 +1182,13 @@ body {
 }
 
 .get-in-touch-footer .footer-right-cards {
-    flex: 1;
+    flex: 1; /* Mengambil ruang tersisa */
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 1.5rem;
+    flex-direction: row; /* Kartu-kartu sejajar secara horizontal */
+    flex-wrap: wrap; /* Agar kartu bisa wrap ke bawah di layar kecil */
+    justify-content: flex-end; /* Dorong kartu ke kanan */
+    align-items: flex-start; /* Mengatur alignment ke atas untuk kartu kontak */
+    gap: 1.5rem; /* Jarak antar kartu */
 }
 
 .get-in-touch-footer .contact-card {
@@ -1211,13 +1196,13 @@ body {
     padding: 1.5rem 2rem;
     border-radius: 12px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Ikon di atas teks */
+    align-items: flex-start; /* Sejajarkan konten kartu ke kiri */
     gap: 0.8rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease;
-    width: calc(50% - 0.75rem);
-    min-width: 180px;
+    width: calc(50% - 0.75rem); /* Mengatur lebar kartu agar bisa sejajar (50% dari wadah dikurangi setengah gap) */
+    min-width: 180px; /* Minimal lebar untuk setiap kartu */
 }
 
 .get-in-touch-footer .contact-card:hover {
@@ -1240,11 +1225,12 @@ body {
     .get-in-touch-footer .footer-inner-container {
         flex-direction: column;
         text-align: center;
-        align-items: center;
+        align-items: center; /* Pusatkan item saat ditumpuk */
     }
     .get-in-touch-footer .footer-left-content {
         min-width: 100%;
         max-width: 100%;
+        align-items: center; /* Pusatkan teks dan ikon di mobile */
     }
     .get-in-touch-footer .footer-social-icons {
         justify-content: center;
@@ -1252,22 +1238,50 @@ body {
     .get-in-touch-footer .footer-right-cards {
         width: 100%;
         justify-content: center;
+        flex-direction: row; /* Kartu kontak tetap sejajar jika cukup ruang */
+        align-items: center; /* Pusatkan kartu jika sejajar */
     }
     .get-in-touch-footer .contact-card {
         width: calc(50% - 0.75rem);
-        align-items: center;
+        align-items: center; /* Pusatkan konten kartu di mobile */
     }
 }
 
 @media (max-width: 480px) {
+    .get-in-touch-footer {
+        padding: 3rem 1rem; /* Kurangi padding di layar sangat kecil */
+    }
+    .get-in-touch-footer h2 {
+        font-size: 2rem; /* Kurangi ukuran judul */
+    }
+    .get-in-touch-footer p {
+        font-size: 0.9rem; /* Kurangi ukuran paragraf */
+    }
+    .footer-social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
     .get-in-touch-footer .footer-right-cards {
-        flex-direction: column;
+        flex-direction: column; /* PAKSA kartu untuk menumpuk di layar sangat kecil */
+        align-items: center;
     }
     .get-in-touch-footer .contact-card {
-        width: 100%;
+        width: 100%; /* Lebar penuh di mobile sangat kecil */
+        padding: 1.2rem 1.5rem;
+        align-items: center;
+    }
+    .get-in-touch-footer .contact-card i {
+        font-size: 1.5rem;
+    }
+    .get-in-touch-footer .contact-card span {
+        font-size: 0.9rem;
+        text-align: center;
     }
 }
 
+/* Ini adalah gaya tambahan yang Anda miliki di akhir footer. */
+/* Jika elemen ini tidak ada di HTML Anda, bisa dihapus. */
 .footer-link {
     color: #f0f0f0;
     text-decoration: none;
