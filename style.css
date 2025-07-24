@@ -181,7 +181,9 @@ body {
     =========================================== */
 .main-content {
     padding: 5rem 0;
-    background: #ffffff;
+    background: #ffffff; /* Pastikan latar belakang section ini putih */
+    margin-bottom: 0;
+    overflow: hidden; /* Menambahkan overflow hidden pada main-content juga, untuk jaga-jaga */
 }
 
 .content-container {
@@ -189,67 +191,71 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    /* UBAH INI: Sesuaikan grid-template-columns agar gambar bisa lebih besar */
-    /* Misalnya, berikan rasio 1.2fr untuk gambar dan 1fr untuk teks */
-    grid-template-columns: 1.2fr 1fr; /* <--- UBAH INI */
-    gap: 3rem; /* <--- KECILKAN SEDIKIT GAP, atau sesuaikan */
+    /* Ini tetap 1.2fr 1fr untuk mempertahankan tata letak sampingan gambar-teks */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem; /* Tetap sama seperti yang Anda berikan */
     align-items: center;
 }
 
 .main-content .image-placeholder { /* Ini adalah wadah gambar di main-content */
-    /* UBAH INI: Perbesar tinggi wadah gambar */
-    height: 450px; /* <--- UBAH TINGGI INI (misal dari 380px menjadi 450px) */
-    border-radius: 10px;
+    height: 450px; /* Tinggi wadah gambar, sesuaikan jika perlu */
+    border-radius: 10px; /* Sudut melengkung yang konsisten */
+    position: relative;
+    overflow: hidden; /* SANGAT PENTING: Memastikan konten (gambar) tidak keluar dari batas */
+    transition: transform 0.3s; /* Efek transisi saat hover */
+
+    /* --- PERUBAHAN UTAMA DI SINI --- */
+
+    /* Menghilangkan box-shadow (yang mungkin menyebabkan efek gradasi/glow oranye di tepi) */
+    box-shadow: none; /* Menghilangkan bayangan sepenuhnya */
+
+    /* Menghilangkan background linear-gradient atau background lain yang menyebabkan oranye */
+    background: #ffffff; /* Pastikan latar belakang wadah gambar adalah putih solid */
+    /* background-color: transparent; */ /* Hapus ini agar background: #ffffff; aktif */
+
+    /* Mengatur ulang display flex, align-items, justify-content */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
-    background: linear-gradient(135deg, #FF6B35, #FF9933);
-
-    /* Pastikan pengaturan gambar animasi donasi tetap seperti yang kita sepakati: */
-    background-image: url('gambar/imagemore3.png'); /* Ganti dengan path ke gambar animasi donasi */
-    background-size: contain; /* Ini akan memastikan gambar tidak terpotong dan terlihat penuh */
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .main-content .image-placeholder:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px); /* Efek naik saat hover */
 }
 
 .main-content .image-placeholder img {
-    /* Pastikan ini tetap disembunyikan jika kamu menggunakan background-image */
-    display: none;
+    /* --- PERUBAHAN PENTING PADA GAMBAR ITU SENDIRI --- */
+    display: block; /* Memastikan gambar ditampilkan sebagai blok */
+    width: 100%; /* Membuat gambar memenuhi lebar wadahnya */
+    height: 100%; /* Membuat gambar memenuhi tinggi wadahnya */
+    object-fit: cover; /* SANGAT PENTING: Ini akan membuat gambar mengisi penuh wadahnya, MEMOTONG bagian yang tidak perlu */
+    border-radius: 10px; /* Memastikan sudut melengkung pada gambar itu sendiri agar pas dengan wadahnya */
 }
 
-.content-text {
-    /* Tidak ada perubahan besar di sini, tetapi mungkin akan sedikit menyesuaikan ruang */
-}
-
-/* Pastikan juga untuk mengecek di media queries, agar tidak rusak di responsif */
+/* --- Responsive Adjustments untuk .main-content .image-placeholder --- */
+/* (Bagian ini juga hanya untuk selektor gambar yang diminta, untuk menjaga responsivitasnya) */
 @media (max-width: 1024px) {
-    .content-container {
-        /* Kembalikan rasio default atau sesuaikan untuk tablet */
-        grid-template-columns: 1fr 1fr; /* Bisa dipertahankan 1fr 1fr */
-        gap: 3rem; /* Biarkan atau sesuaikan */
-    }
     .main-content .image-placeholder {
-        height: 380px; /* Kembalikan ke ukuran normal di tablet, atau sesuaikan */
+        height: 380px; /* Tinggi disesuaikan untuk tablet */
     }
 }
 
 @media (max-width: 768px) {
-    .content-container {
-        grid-template-columns: 1fr; /* Akan menumpuk di mobile */
-        gap: 2rem;
-    }
     .main-content .image-placeholder {
-        height: 300px; /* Sesuaikan tinggi di mobile */
+        height: 300px; /* Tinggi disesuaikan untuk mobile */
+        /* Pastikan gambar ini membentang penuh saat layout menjadi satu kolom di mobile */
+        /* Ini adalah untuk kasus mobile ketika grid-template-columns: 1fr; */
+        grid-column: 1 / -1; /* Membentang penuh lebar di mobile */
     }
 }
+
+@media (max-width: 480px) {
+    .main-content .image-placeholder {
+        height: 250px; /* Lebih kecil di mobile sangat kecil */
+    }
+}
+
+/* ... (SEMUA KODE CSS LAINNYA DI BAWAH INI DAN DI ATAS INI TETAP TIDAK BERUBAH) ... */
 /* ===========================================
     5. ABOUT PAGE STYLES - Halaman "Tentang Kami"
     - Styling khusus untuk elemen-elemen di halaman "Tentang Kami".
@@ -1109,7 +1115,7 @@ body {
 .get-in-touch-footer {
     background-color: #1a1a1a; /* Warna latar belakang hitam gelap */
     color: #e0e0e0; /* Warna teks terang */
-    padding: 1rem 2rem; /* Padding atas dan bawah */
+    padding: 1rem 1rem; /* Padding atas dan bawah */
     font-family: 'Segoe UI', sans-serif; /* Font yang konsisten */
     margin-top: auto; /* Memastikan footer berada di bawah konten */
 }
@@ -1132,7 +1138,7 @@ body {
 
 .get-in-touch-footer h2 {
     font-family: serif; /* Font serif untuk judul, seperti contoh gambar */
-    font-size: 2.5rem; /* Ukuran judul */
+    font-size: 2rem; /* Ukuran judul */
     color: #ffffff; /* Warna putih untuk judul */
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -1141,7 +1147,7 @@ body {
 .get-in-touch-footer p {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 2rem; /* Jarak antara paragraf dan ikon */
+    margin-bottom: 1rem; /* Jarak antara paragraf dan ikon */
     color: #bbbbbb; /* Warna teks deskripsi yang sedikit lebih gelap dari putih */
 }
 
