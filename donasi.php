@@ -1,15 +1,19 @@
+<?php
+include 'koneksi.php'; // Memanggil file koneksi database
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GotongID - Donasi</title>
-  <link rel="stylesheet" href="donasi-style.css" />
+  <!-- Menggunakan style.css utama untuk konsistensi -->
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="donasi-page">
   <header class="navbar">
-    <div class="container">
+    <div class="nav-container">
       <div class="logo">
         <img src="gambar/Logo U.png" alt="GotongID Logo">
       </div>
@@ -18,15 +22,15 @@
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="donasi.html">Donasi</a></li>
-          <li><a href="detail-donasi.html">Detail Donasi</a></li>
+        <ul class="nav-menu">
+          <li><a href="index.php">Beranda</a></li>
+          <li><a href="donasi.php" class="active">Donasi</a></li>
+          <li><a href="detail-donasi.php">Detail Donasi</a></li>
           <li><a href="tentang-kami.html">Tentang Kami</a></li>
         </ul>
       </nav>
 
-      <a href="donasi.html" class="btn-donate">Donate</a>
+      <a href="donasi.php" class="btn-donate">Donate</a>
     </div>
   </header>
 
@@ -47,16 +51,37 @@
         </div>
 
         <div class="causes-grid">
-          <!-- Cards -->
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Clean Water for All</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Improve Education</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>End Hunger</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Reduce Homelessness</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Immigration and Refugees</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Climate Change Mitigation</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Protect the Environment</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Animal Welfare</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
-          <div class="cause-card"><div class="img-placeholder"></div><div class="card-body"><h3>Clean Water Initiative</h3><p>Dolor donec eget morbi nisi...</p><button class="btn-details">View Details</button></div></div>
+          <?php
+          // Mengambil data kampanye dari database
+          $sql = "SELECT campaign_id, campaign_name, description, current_amount, target_amount, image_url FROM campaigns ORDER BY created_at DESC";
+          $result = mysqli_query($conn, $sql);
+
+          if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) {
+                  $progress = ($row["current_amount"] / $row["target_amount"]) * 100;
+                  if ($progress > 100) $progress = 100; // Batasi progress maksimal 100%
+          ?>
+          <div class="cause-card">
+              <div class="img-placeholder" style="background-image: url('<?php echo htmlspecialchars($row["image_url"]); ?>');">
+                  <!-- Gambar kampanye akan ditampilkan sebagai background-image -->
+              </div>
+              <div class="card-body">
+                  <h3><?php echo htmlspecialchars($row["campaign_name"]); ?></h3>
+                  <p><?php echo htmlspecialchars(substr($row["description"], 0, 100)) . '...'; // Batasi deskripsi ?></p>
+                  <div class="progress-bar-container" style="margin-bottom: 10px;">
+                      <div class="progress-bar" style="width: <?php echo $progress; ?>%; background-color: #ff6b35; height: 8px; border-radius: 4px;"></div>
+                  </div>
+                  <p style="font-size: 0.85rem; color: #777;">Terkumpul: Rp <?php echo number_format($row["current_amount"], 0, ',', '.'); ?> dari Rp <?php echo number_format($row["target_amount"], 0, ',', '.'); ?></p>
+                  <a href="detail-donasi.php?id=<?php echo $row["id"]; ?>" class="btn-details">View Details</a>
+              </div>
+          </div>
+          <?php
+              }
+          } else {
+              echo "<p>Tidak ada kampanye donasi yang tersedia saat ini.</p>";
+          }
+          mysqli_close($conn); // Tutup koneksi setelah selesai
+          ?>
         </div>
       </div>
     </section>
@@ -66,7 +91,7 @@
   <div class="footer-inner-container">
     <div class="footer-left-content">
       <h2>Yuk, Sapa GotongID!</h2>
-      <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID? 
+      <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID?
         Kami siap mendengarkan. Mari bersama membangun dampak positif!</p>
       <div class="footer-social-icons">
         <a href="https://www.instagram.com/gotongid?igsh=ODZxeWR4cmJjdmw=" target="_blank" aria-label="Instagram">
@@ -100,18 +125,18 @@
 </footer>
 
   <!-- Tombol floating donate untuk mobile -->
-  <a href="donasi.html" class="floating-donate">Donate</a>
+  <a href="donasi.php" class="floating-donate">Donate</a>
 
   <script>
     // Toggle responsive menu
     function toggleMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.classList.toggle('show');
+      const navMenu = document.querySelector('.nav-menu'); // Menggunakan .nav-menu
+      navMenu.classList.toggle('show');
     }
 
     // Highlight active nav
     const currentFile = location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    document.querySelectorAll(".nav-menu a").forEach(link => { // Menggunakan .nav-menu
       const linkFile = link.getAttribute("href").split("/").pop();
       if (linkFile === currentFile) {
         link.classList.add("active");
@@ -120,8 +145,8 @@
 
     // Dynamic breadcrumb
     const bread = {
-      "donasi.html": "Beranda > Donasi",
-      "": "Beranda"
+      "donasi.php": "Beranda > Donasi", // Ubah .html ke .php
+      "index.php": "Beranda" // Tambahkan ini untuk index.php
     };
     const currentPath = location.pathname.split("/").pop();
     document.getElementById("breadcrumb").textContent = bread[currentPath] || "Home";

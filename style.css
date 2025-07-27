@@ -1,11 +1,3 @@
-/*
- * ===========================================================================
- * GOTO NGID - STYLESHEET UTAMA
- * Versi: 1.0
- * Deskripsi: Mengandung seluruh styling untuk website GotongID.
- * ===========================================================================
- */
-
 /* ===========================================
     1. RESET DAN BASE STYLES
     - Mengatur ulang properti CSS default browser untuk konsistensi.
@@ -52,7 +44,7 @@ body {
     z-index: 1000;
     backdrop-filter: blur(10px);
     display: flex; /* Tambahkan ini */
-    align-items: center; 
+    align-items: center;
 }
 
 .nav-container {
@@ -61,8 +53,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem; 
-    width: 100%; 
+    padding: 0 2rem;
+    width: 100%;
 }
 
 .logo {
@@ -72,12 +64,12 @@ body {
 }
 
 .logo::before {
-    content: none; 
+    content: none;
 }
 
 .logo img {
-    height: 100%; 
-    width: auto; 
+    height: 100%;
+    width: auto;
     display: block;
 }
 
@@ -104,7 +96,12 @@ body {
     font-weight: bold;
 }
 
-.profile-btn {
+#auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#auth-buttons a {
     background: #ff6b35;
     color: white;
     padding: 0.5rem 1.5rem;
@@ -115,12 +112,49 @@ body {
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.profile-btn:hover {
+#auth-buttons a:hover {
     background: #e55a2b;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Auth button styles */
+.btn-admin {
+    background: #4a6bff !important;
+}
+.btn-admin:hover {
+    background: #3a5ae8 !important;
+}
+
+.btn-logout {
+    background: #ff4a4a !important;
+}
+.btn-logout:hover {
+    background: #e83a3a !important;
+}
+
+.btn-register {
+    background: #4CAF50 !important;
+}
+.btn-register:hover {
+    background: #3d8b40 !important;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 
@@ -1378,20 +1412,20 @@ body {
         gap: 1.5rem;
         padding: 0 1rem;
     }
-    
+
     .about-card {
         padding: 2rem;
     }
-    
+
     .page-title {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
-    
+
     .about-card h2 {
         font-size: 1.3rem;
     }
-    
+
     .about-card p {
         font-size: 0.9rem;
     }
@@ -1480,7 +1514,7 @@ body {
         bottom: 10px;
         border-radius: 15px;
     }
-    
+
     .news-image {
         height: 120px;
     }
@@ -1498,7 +1532,7 @@ body {
     .about-card {
         padding: 1.5rem;
     }
-    
+
     .page-title {
         font-size: 1.8rem;
         padding-top: 1rem;
@@ -1557,7 +1591,7 @@ body {
         flex-direction: column; /* Ikon dan teks kartu bisa ditumpuk */
         gap: 0.5rem;
     }
-    
+
     .get-in-touch-footer .contact-card i {
         font-size: 1.5rem;
     }

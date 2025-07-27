@@ -14,13 +14,26 @@
                 <div class="logo">
                     <img src="gambar/Logo U.png" alt="GotongID Logo">
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="./indek.html" class="active">Beranda</a></li>
-                    <li><a href="./donasi.html">Donasi</a></li>
-                    <li><a href="./detail-donasi.html">Detail donasi</a></li>
-                    <li><a href="./tentang-kami.html">Tentang Kami</a></li>
-                </ul>
-                <button class="profile-btn">PROFIL</button>
+                <!-- Tombol hamburger untuk mobile -->
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+                    <ul class="nav-menu">
+                        <li><a href="./index.php" class="active">Beranda</a></li>
+                        <li><a href="./donasi.php">Donasi</a></li>
+                        <li><a href="./detail-donasi.php">Detail donasi</a></li>
+                        <li><a href="./tentang-kami.html">Tentang Kami</a></li>
+                    </ul>
+                <div class="profile-btn" id="auth-buttons">
+                <?php if($isLoggedIn) { ?>
+                    <?php if($isAdmin) { ?>
+                        <a href="admin.php" class="btn-admin">ADMIN</a>
+                    <?php } ?>
+                    <a href="profil.php" class="btn-profile">PROFIL</a>
+                    <a href="logout.php" class="btn-logout">LOGOUT</a>
+                <?php } else { ?>
+                    <a href="login.php" class="btn-login">LOGIN</a>
+                    <a href="register.php" class="btn-register">REGISTER</a>
+                <?php } ?>
+            </div>
             </div>
         </nav>
 
@@ -39,7 +52,7 @@
         <section class="main-content">
             <div class="content-container">
                 <div class="image-placeholder">
-                    <div><img src="gambar/image1.png" ></div>
+                    <div><img src="gambar/image1.png" alt="Mengubah niat baik menjadi tindakan baik"></div>
                 </div>
 
                 <div class="content-text">
@@ -69,6 +82,8 @@
         </section>
 
         <div class="nav-bar">
+            <!-- Periksa apakah ini benar-benar navigasi atau hanya logo mitra.
+                 Jika navigasi, perlu link yang jelas. Jika logo, mungkin pindahkan ke footer atau bagian lain. -->
             <div class="nav-icon"><img src="gambar/Logo1.png" alt="Logo 1" /></div>
             <div class="nav-icon"><img src="gambar/Logo2.png" alt="Logo 2" /></div>
             <div class="nav-icon"><img src="gambar/Logo3.png" alt="Logo 3" /></div>
@@ -83,7 +98,7 @@
             </div>
             <div class="news-cards">
                 <div class="card">
-                    <div class="image-placeholder"> <img src="gambar/imagemore1.png" alt="Popular Charities" class="news-image" /></div>
+                    <div class="image-placeholder"> <img src="gambar/imagemore1.png" alt="Where to Give Now" class="news-image" /></div>
                     <div class="card-content">
                         <h3>Where to Give Now</h3>
                         <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
@@ -97,7 +112,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="image-placeholder"> <img src="gambar/imagemore3.png" alt="Popular Charities" class="news-image" /></div>
+                    <div class="image-placeholder"> <img src="gambar/imagemore3.png" alt="Childcare Crisis" class="news-image" /></div>
                     <div class="card-content">
                         <h3>Childcare Crisis</h3>
                         <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
@@ -118,7 +133,7 @@
         </section>
 
 <section class="dampak-kebaikan-section">
-    <h2>Dampak Nyata</h2> 
+    <h2>Dampak Nyata</h2>
     <div class="dampak-kebaikan-container">
 
         <div class="dampak-kebaikan-card">
@@ -153,12 +168,12 @@
 
     </div>
 </section>
-        </div> 
+        </div>
    <footer class="get-in-touch-footer">
   <div class="footer-inner-container">
     <div class="footer-left-content">
       <h2>Yuk, Sapa GotongID!</h2>
-      <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID? 
+      <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID?
         Kami siap mendengarkan. Mari bersama membangun dampak positif!</p>
       <div class="footer-social-icons">
         <a href="https://www.instagram.com/gotongid?igsh=ODZxeWR4cmJjdmw=" target="_blank" aria-label="Instagram">
@@ -191,6 +206,22 @@
   </div>
 </footer>
 
+<script>
+    // Toggle responsive menu
+    function toggleMenu() {
+      const navMenu = document.querySelector('.nav-menu');
+      navMenu.classList.toggle('show'); // Tambahkan/hapus class 'show'
+    }
 
+    // Highlight active nav
+    // Perlu sedikit penyesuaian karena ini PHP, bukan HTML statis
+    const currentFile = location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+      const linkFile = link.getAttribute("href").split("/").pop();
+      if (linkFile === currentFile) {
+        link.classList.add("active");
+      }
+    });
+</script>
 </body>
 </html>
