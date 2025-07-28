@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+$isLoggedIn = isset($_SESSION['user']);
+$isAdmin = $isLoggedIn && isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin';
+?>
+<?php
+include 'koneksi.php'; // Pastikan sudah ada
+
+$newsList = [];
+$result = mysqli_query($conn, "SELECT news_id, title, content, image_url, publish_date FROM news ORDER BY publish_date DESC LIMIT 3");
+while ($row = mysqli_fetch_assoc($result)) {
+    $newsList[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,21 +35,21 @@
                     <ul class="nav-menu">
                         <li><a href="./index.php" class="active">Beranda</a></li>
                         <li><a href="./donasi.php">Donasi</a></li>
-                        <li><a href="./detail-donasi.php">Detail donasi</a></li>
+                        <?php if($isAdmin): ?>
+                            <li><a href="./detail-donasi.php">Detail donasi</a></li>
+                        <?php endif; ?>
                         <li><a href="./tentang-kami.html">Tentang Kami</a></li>
                     </ul>
                 <div class="profile-btn" id="auth-buttons">
-                <?php if($isLoggedIn) { ?>
-                    <?php if($isAdmin) { ?>
-                        <a href="admin.php" class="btn-admin">ADMIN</a>
-                    <?php } ?>
-                    <a href="profil.php" class="btn-profile">PROFIL</a>
-                    <a href="logout.php" class="btn-logout">LOGOUT</a>
-                <?php } else { ?>
-                    <a href="login.php" class="btn-login">LOGIN</a>
-                    <a href="register.php" class="btn-register">REGISTER</a>
-                <?php } ?>
-            </div>
+                    <?php if($isLoggedIn): ?>
+                        <?php if($isAdmin): ?>
+                            <a href="admin.php" class="btn-admin">Tambah Berita Donasi</a>
+                        <?php endif; ?>
+                        <a href="logout.php" class="btn-logout">LOGOUT</a>
+                    <?php else: ?>
+                        <a href="login.php" class="btn-login">LOGIN</a>
+                    <?php endif; ?>
+                </div>
             </div>
         </nav>
 
@@ -97,27 +113,21 @@
                 <button class="more-news">MORE NEWS</button>
             </div>
             <div class="news-cards">
+                <?php foreach ($newsList as $news): ?>
                 <div class="card">
-                    <div class="image-placeholder"> <img src="gambar/imagemore1.png" alt="Where to Give Now" class="news-image" /></div>
+                    <div class="image-placeholder">
+                        <img src="<?php echo htmlspecialchars($news['image_url']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?>" class="news-image" />
+                    </div>
                     <div class="card-content">
-                        <h3>Where to Give Now</h3>
-                        <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
+                        <h3><?php echo htmlspecialchars($news['title']); ?></h3>
+                        <p><?php echo htmlspecialchars(mb_strimwidth($news['content'], 0, 100, '...')); ?></p>
+                        <small style="color:#888;"><?php echo date('d M Y', strtotime($news['publish_date'])); ?></small>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="image-placeholder"> <img src="gambar/imagemore2.png" alt="Popular Charities" class="news-image" /></div>
-                    <div class="card-content">
-                        <h3>Popular Charities</h3>
-                        <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="image-placeholder"> <img src="gambar/imagemore3.png" alt="Childcare Crisis" class="news-image" /></div>
-                    <div class="card-content">
-                        <h3>Childcare Crisis</h3>
-                        <p>Dolor doonec eget mattis. Eu sit et enim ornare nibh varius odio. Cumduir porttitor quis gravida porttitor volutpat.</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+                <?php if (empty($newsList)): ?>
+                    <p>Tidak ada berita terbaru.</p>
+                <?php endif; ?>
             </div>
         </section>
 

@@ -1,5 +1,12 @@
 <?php
+
+
 session_start();
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['role']) || $_SESSION['user']['role'] !== 'admin') {
+    header("Location: login.php");
+    exit;
+}
+
 include 'koneksi.php'; // Memanggil file koneksi.php untuk membuat koneksi ke database
 
 $campaign = null;
@@ -61,23 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['donate_amount']) && $c
 mysqli_close($conn); // Tutup koneksi setelah semua operasi selesai
 
 // Initialize auth variables
-$isLoggedIn = false;
-$isAdmin = false;
+$isLoggedIn = isset($_SESSION['user']);
+$isAdmin = $isLoggedIn && $_SESSION['user']['role'] === 'admin';
 $userData = [];
 
-// Check if user is logged in
-if (isset($_SESSION['user_id'])) {
-    $isLoggedIn = true;
-    $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
-
-    // Get user data if logged in
-    if ($isLoggedIn) {
-        $userData = [
-            'name' => $_SESSION['name'] ?? 'User ',
-            'email' => $_SESSION['email'] ?? '',
-            'profile_pic' => $_SESSION['profile_pic'] ?? 'gambar/default-profile.jpg'
-        ];
-    }
+if ($isLoggedIn) {
+    $userData = [
+        'name' => $_SESSION['user']['username'] ?? 'Admin',
+        'profile_pic' => 'gambar/default-profile.jpg'
+    ];
 }
 ?>
 <!DOCTYPE html>
@@ -103,16 +102,16 @@ if (isset($_SESSION['user_id'])) {
                 <li><a href="./detail-donasi.php" class="active">Detail donasi</a></li>
                 <li><a href="./tentang-kami.php">Tentang Kami</a></li>
             </ul>
+            
+
             <div class="profile-btn" id="auth-buttons">
                 <?php if($isLoggedIn) { ?>
                     <?php if($isAdmin) { ?>
                         <a href="admin/dashboard.php" class="btn-admin">ADMIN</a>
                     <?php } ?>
-                    <a href="profil.php" class="btn-profile">PROFIL</a>
                     <a href="logout.php" class="btn-logout">LOGOUT</a>
                 <?php } else { ?>
                     <a href="login.php" class="btn-login">LOGIN</a>
-                    <a href="register.php" class="btn-register">REGISTER</a>
                 <?php } ?>
             </div>
         </div>
@@ -175,58 +174,57 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <footer class="get-in-touch-footer">
-  <div class="footer-inner-container">
-    <div class="footer-left-content">
-      <h2>Yuk, Sapa GotongID!</h2>
-      <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID?
-        Kami siap mendengarkan. Mari bersama membangun dampak positif!</p>
-      <div class="footer-social-icons">
-        <a href="https://www.instagram.com/gotongid?igsh=ODZxeWR4cmJjdmw=" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@gotongid?_t=ZS-8yFsumEsHm1&_r=1" target="_blank" aria-label="TikTok">
-          <i class="fab fa-tiktok"></i>
-        </a>
+      <div class="footer-inner-container">
+        <div class="footer-left-content">
+          <h2>Yuk, Sapa GotongID!</h2>
+          <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID?
+            Kami siap mendengarkan. Mari bersama membangun dampak positif!</p>
+          <div class="footer-social-icons">
+            <a href="https://www.instagram.com/gotongid?igsh=ODZxeWR4cmJjdmw=" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@gotongid?_t=ZS-8yFsumEsHm1&_r=1" target="_blank" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-right-cards">
+          <div class="contact-card">
+            <i class="fas fa-globe"></i>
+            <span>
+              <a href="https://www.gotongid.com" target="_blank" class="footer-link">
+                www.gotongid.com
+              </a>
+            </span>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <span>
+              <a href="mailto:hallogotongid@gmail.com" class="footer-link">
+                hallogotongid@gmail.com
+              </a>
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
 
-    <div class="footer-right-cards">
-      <div class="contact-card">
-        <i class="fas fa-globe"></i>
-        <span>
-          <a href="https://www.gotongid.com" target="_blank" class="footer-link">
-            www.gotongid.com
-          </a>
-        </span>
-      </div>
-      <div class="contact-card">
-        <i class="fas fa-envelope"></i>
-        <span>
-          <a href="mailto:hallogotongid@gmail.com" class="footer-link">
-            hallogotongid@gmail.com
-          </a>
-        </span>
-      </div>
-    </div>
-  </div>
-</footer>
+    <script>
+        // Toggle responsive menu
+        function toggleMenu() {
+          const navMenu = document.querySelector('.nav-menu');
+          navMenu.classList.toggle('show');
+        }
 
-<script>
-    // Toggle responsive menu
-    function toggleMenu() {
-      const navMenu = document.querySelector('.nav-menu');
-      navMenu.classList.toggle('show');
-    }
-
-    // Highlight active nav
-    const currentFile = location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-menu a").forEach(link => {
-      const linkFile = link.getAttribute("href").split("/").pop();
-      if (linkFile === currentFile) {
-        link.classList.add("active");
-      }
-    });
-
-</script>
+        // Highlight active nav
+        const currentFile = location.pathname.split("/").pop();
+        document.querySelectorAll(".nav-menu a").forEach(link => {
+          const linkFile = link.getAttribute("href").split("/").pop();
+          if (linkFile === currentFile) {
+            link.classList.add("active");
+          }
+        });
+    </script>
 </body>
 </html>
