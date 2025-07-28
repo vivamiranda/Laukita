@@ -1167,7 +1167,7 @@ body {
 .get-in-touch-footer .footer-left-content {
     flex: 2; /* Mengambil ruang lebih besar */
     min-width: 300px;
-    max-width: 500px; /* Disesuaikan agar tidak terlalu lebar */
+    max-width: 400px; /* Disesuaikan agar tidak terlalu lebar */
     display: flex; /* Mengaktifkan flexbox untuk menumpuk elemen di dalamnya */
     flex-direction: column; /* Menumpuk elemen secara vertikal (judul, paragraf, ikon) */
     align-items: flex-start; /* Sejajarkan konten ke kiri */
