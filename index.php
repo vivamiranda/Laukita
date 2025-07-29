@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <?php if($isAdmin): ?>
                             <li><a href="./detail-donasi.php">Detail donasi</a></li>
                         <?php endif; ?>
-                        <li><a href="./tentang-kami.html">Tentang Kami</a></li>
+                        <li><a href="./tentang-kami.php">Tentang Kami</a></li>
                     </ul>
                 <div class="profile-btn" id="auth-buttons">
                     <?php if($isLoggedIn): ?>
@@ -96,6 +96,14 @@ while ($row = mysqli_fetch_assoc($result)) {
                 </div>
             </div>
         </section>
+        <?php
+        $campaigns = [];
+        $result = mysqli_query($conn, "SELECT * FROM campaigns ORDER BY campaign_id DESC LIMIT 3");
+        while ($row = mysqli_fetch_assoc($result)) {
+            $campaigns[] = $row;
+        }
+        ?>
+
 
         <div class="nav-bar">
             <!-- Periksa apakah ini benar-benar navigasi atau hanya logo mitra.

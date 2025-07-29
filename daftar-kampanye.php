@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title align="center">Daftar Kampanye Donasi - GotongID</title>
+    <title>Daftar Kampanye Donasi - GotongID</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_fixed.css">
     <style>
@@ -145,21 +145,6 @@ if (isset($_GET['id'])) {
     </style>
 </head>
 <body>
-    <header class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <img src="gambar/Logo U.png" alt="GotongID Logo">
-      </div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="./index.php">Beranda</a></li>
-          <li><a href="./donasi.php" class="active">Donasi</a></li>
-          <li><a href="tentang-kami.php">Tentang Kami</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
 <div class="campaigns-container">
     <?php if ($campaign): ?>

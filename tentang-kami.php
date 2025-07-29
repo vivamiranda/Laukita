@@ -16,10 +16,8 @@
             <ul class="nav-menu">
                 <li><a href="./index.php">Beranda</a></li>
                 <li><a href="./donasi.php">Donasi</a></li>
-                <li><a href="./detail-donasi.php">Detail donasi</a></li>
-                <li><a href="./tentang-kami.html" class="active">Tentang Kami</a></li>
+                <li><a href="./tentang-kami.php" class="active">Tentang Kami</a></li>
             </ul>
-            <button class="profile-btn">PROFIL</button>
         </div>
     </nav>
 
@@ -91,7 +89,7 @@
                         <div class="cta-item">
                             <h3>Untuk Donatur:</h3>
                             <p>Ayo, bantu wujudkan ide-ide keren Ormawa dan ciptakan dampak nyata!</p>
-                            <a href="./donasi.html" class="btn primary-btn">Donasi Sekarang</a>
+                            <a href="./donasi.php" class="btn primary-btn">Donasi Sekarang</a>
                         </div>
                         <div class="cta-item">
                             <h3>Untuk Ormawa UNIMUS:</h3>

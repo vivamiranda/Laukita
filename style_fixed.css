@@ -1,0 +1,681 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 5rem 0 12rem;
+  background: #ffffff;
+  margin-bottom: 0;
+  overflow: visible;
+}
+
+/* Tambahan untuk menjaga layout kampanye donasi */
+.causes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.cause-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #eee;
+  width: 340px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+
+.cause-card:hover {
+  box-shadow: 0 6px 24px #e0e0e0;
+}
+
+.img-placeholder {
+  height: 180px;
+  background: #f4f4f4 center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body {
+  padding: 20px 18px 18px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body h3 {
+  margin: 0 0 10px 0;
+  color: #ff6b35;
+  font-size: 1.2rem;
+}
+
+.card-body p {
+  margin: 0 0 12px 0;
+  color: #444;
+  font-size: 1rem;
+}
+
+.progress-bar-container {
+  background: #eee;
+  border-radius: 4px;
+  height: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #ff6b35;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.btn-details {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: #ff6b35;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.btn-details:hover {
+  background: #e55a24;
+}
+
+@media (max-width: 900px) {
+  .causes-grid { flex-direction: column; align-items: center; }
+  .cause-card { width: 95%; }
+}
+
+.get-in-touch-footer {
+    background-color: #1a1a1a; /* Warna latar belakang hitam gelap */
+    color: #e0e0e0; /* Warna teks terang */
+    padding: 1.5rem 2rem; /* Menggunakan nilai padding yang lebih moderat */
+    font-family: 'Segoe UI', sans-serif; /* Font yang konsisten */
+    margin-top: auto; /* Memastikan footer berada di bawah konten */
+}
+
+.get-in-touch-footer .footer-inner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Mengatur alignment ke atas untuk konten kiri dan kanan */
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    gap: 3rem; /* Jarak antar kolom */
+}
+
+.get-in-touch-footer .footer-left-content {
+    flex: 2; /* Mengambil ruang lebih besar */
+    min-width: 300px;
+    max-width: 500px; /* Disesuaikan agar tidak terlalu lebar */
+    display: flex; /* Mengaktifkan flexbox untuk menumpuk elemen di dalamnya */
+    flex-direction: column; /* Menumpuk elemen secara vertikal (judul, paragraf, ikon) */
+    align-items: flex-start; /* Sejajarkan konten ke kiri */
+}
+
+.get-in-touch-footer h2 {
+    font-family: serif; /* Font serif untuk judul */
+    font-size: 2.5rem; /* Menggunakan ukuran yang lebih besar */
+    color: #ffffff; /* Warna putih untuk judul */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.get-in-touch-footer p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem; /* Jarak antara paragraf dan ikon sosial di bawahnya */
+    color: #bbbbbb; /* Warna teks deskripsi */
+}
+
+.get-in-touch-footer .footer-social-icons {
+    display: flex; /* Agar ikon sejajar horizontal */
+    gap: 1.2rem; /* Jarak antar ikon */
+}
+
+.footer-social-icons a {
+    color: #e0e0e0;
+    font-size: 1.6rem;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    background-color: #ff6b35;
+    border-color: #ff6b35;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
+}
+
+.get-in-touch-footer .footer-right-cards {
+    flex: 1; /* Mengambil ruang tersisa */
+    display: flex;
+    flex-direction: row; /* Kartu-kartu sejajar secara horizontal */
+    flex-wrap: wrap; /* Agar kartu bisa wrap ke bawah di layar kecil */
+    justify-content: flex-end; /* Dorong kartu ke kanan */
+    align-items: flex-start; /* Mengatur alignment ke atas untuk kartu kontak */
+    gap: 1.5rem; /* Jarak antar kartu */
+}
+
+.get-in-touch-footer .contact-card {
+    background-color: #2b2b2b;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* Ikon di atas teks */
+    align-items: flex-start; /* Sejajarkan konten kartu ke kiri */
+    gap: 0.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: calc(50% - 0.75rem); /* Mengatur lebar kartu agar bisa sejajar (50% dari wadah dikurangi setengah gap) */
+    min-width: 180px; /* Minimal lebar untuk setiap kartu */
+}
+
+.get-in-touch-footer .contact-card:hover {
+    transform: translateY(-5px);
+    background-color: #3a3a3a;
+}
+
+.get-in-touch-footer .contact-card i {
+    font-size: 1.8rem;
+    color: #ff6b35;
+}
+
+.get-in-touch-footer .contact-card span {
+    font-size: 1rem;
+    color: #f0f0f0;
+}
+
+/* --- Media Queries untuk Footer --- */
+@media (max-width: 768px) {
+    .get-in-touch-footer .footer-inner-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center; /* Pusatkan item saat ditumpuk */
+    }
+    .get-in-touch-footer .footer-left-content {
+        min-width: 100%;
+        max-width: 100%;
+        align-items: center; /* Pusatkan teks dan ikon di mobile */
+    }
+    .get-in-touch-footer .footer-social-icons {
+        justify-content: center;
+    }
+    .get-in-touch-footer .footer-right-cards {
+        width: 100%;
+        justify-content: center;
+        flex-direction: row; /* Kartu kontak tetap sejajar jika cukup ruang */
+        align-items: center; /* Pusatkan kartu jika sejajar */
+    }
+    .get-in-touch-footer .contact-card {
+        width: calc(50% - 0.75rem);
+        align-items: center; /* Pusatkan konten kartu di mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .get-in-touch-footer {
+        padding: 3rem 1rem; /* Kurangi padding di layar sangat kecil */
+    }
+    .get-in-touch-footer h2 {
+        font-size: 2rem; /* Kurangi ukuran judul */
+    }
+    .get-in-touch-footer p {
+        font-size: 0.9rem; /* Kurangi ukuran paragraf */
+    }
+    .footer-social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+    .get-in-touch-footer .footer-right-cards {
+        flex-direction: column; /* PAKSA kartu untuk menumpuk di layar sangat kecil */
+        align-items: center;
+    }
+    .get-in-touch-footer .contact-card {
+        width: 100%; /* Lebar penuh di mobile sangat kecil */
+        padding: 1.2rem 1.5rem;
+        align-items: center;
+    }
+    .get-in-touch-footer .contact-card i {
+        font-size: 1.5rem;
+    }
+    .get-in-touch-footer .contact-card span {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+/* Ini adalah gaya tambahan yang Anda miliki di akhir footer. */
+/* Jika elemen ini tidak ada di HTML Anda, bisa dihapus. */
+.footer-link {
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: #ff6b35;
+}
+
+/* ===========================================
+    11. RESPONSIVE DESIGN - Media Queries
+    =========================================== */
+@media (max-width: 1024px) {
+    .content-container {
+        gap: 3rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    /* Dampak Kebaikan Kita Responsif */
+    .dampak-kebaikan-section h2 {
+        font-size: 2.2em;
+    }
+    .dampak-kebaikan-container {
+        gap: 30px;
+    }
+    .dampak-kebaikan-card {
+        padding: 20px;
+        gap: 20px;
+    }
+    .dampak-kebaikan-image-wrapper {
+        max-width: 45%;
+    }
+    .dampak-kebaikan-text-content {
+        max-width: 55%;
+    }
+    .dampak-kebaikan-text-content h3 {
+        font-size: 1.6em;
+    }
+    .dampak-kebaikan-text-content p {
+        font-size: 0.95em;
+    }
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    min-height: 80px; /* Sesuaikan angka ini. Ini akan menjadi tinggi minimal navbar. */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    display: flex; /* Tambahkan ini */
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.logo {
+    height: 85px; /* Sesuaikan tinggi logo Anda di sini, misalnya 60px */
+    display: flex;
+    align-items: center;
+}
+
+.logo::before {
+    content: none;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+/* Pastikan juga Anda memiliki gaya untuk .nav-menu dan .profile-btn seperti sebelumnya */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #ff6b35;
+}
+
+.nav-menu a.active {
+    font-weight: bold;
+}
+
+#auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#auth-buttons a {
+    background: #ff6b35;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#auth-buttons a:hover {
+    background: #e55a2b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .content-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-section {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .main-content {
+        padding: 3rem 0;
+    }
+
+    .content-text h2 {
+        font-size: 2rem;
+    }
+
+    .bottom-nav-container {
+        padding: 0 0.5rem;
+    }
+
+    .nav-icon {
+        font-size: 0.7rem;
+        min-width: 50px;
+        padding: 0.3rem;
+    }
+
+    /* Responsive untuk About Page */
+    .about-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .about-card {
+        padding: 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Penyesuaian untuk Section Blocks & CTA di Tablet */
+    .section-block {
+        padding: 2rem 1.5rem;
+        margin: 0 auto 2rem;
+    }
+    .section-block h2 {
+        font-size: 1.8rem;
+    }
+    .section-block ol li {
+        padding-left: 45px;
+    }
+    .section-block ol li::before {
+        width: 25px;
+        height: 25px;
+        font-size: 1em;
+    }
+    .cta-section {
+        padding: 2rem 1.5rem;
+        margin: 0 auto 2rem;
+    }
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .cta-item {
+        max-width: 100%;
+        padding: 2rem;
+    }
+    .cta-item h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Responsive untuk Dampak Kebaikan Kita */
+    .dampak-kebaikan-card {
+        flex-direction: column; /* Gambar di atas, teks di bawah di mobile */
+        padding: 20px;
+        gap: 20px;
+    }
+    /* Menghapus reverse-layout khusus untuk mobile karena semua sudah column */
+    /* .dampak-kebaikan-card.reverse-layout {
+        flex-direction: column;
+    } */
+    .dampak-kebaikan-image-wrapper,
+    .dampak-kebaikan-text-content {
+        max-width: 100%; /* Lebar penuh di mobile */
+        min-width: unset;
+    }
+    .dampak-kebaikan-text-content {
+        text-align: center; /* Teks di tengah di mobile */
+    }
+    .dampak-kebaikan-section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .content-text h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Perbaikan: .image-placeholder dan .hero-image */
+    .image-placeholder {
+        height: 250px;
+    }
+    .hero-image {
+        height: 200px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+    }
+    .hero-image::before {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 15px;
+    }
+
+    .news-image {
+        height: 120px;
+    }
+
+    .feature-item {
+        padding: 1rem;
+    }
+
+    .nav-icon {
+        font-size: 0.65rem;
+        min-width: 45px;
+    }
+
+    /* Responsive untuk About Page - Mobile Kecil */
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+        padding-top: 1rem;
+    }
+
+    /* Responsive untuk Section Blocks & CTA di Mobile Kecil */
+    .section-block {
+        padding: 1.5rem;
+    }
+    .section-block h2 {
+        font-size: 1.5rem;
+    }
+    .cta-section {
+        padding: 1.5rem;
+    }
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+    .cta-item h3 {
+        font-size: 1.2rem;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive untuk Dampak Kebaikan Kita - Mobile Kecil */
+    .dampak-kebaikan-text-content h3 {
+        font-size: 1.5em;
+    }
+    .dampak-kebaikan-text-content p {
+        font-size: 0.9em;
+    }
+
+    /* --- RESPONSIVE ADJUSTMENTS UNTUK FOOTER MOBILE KECIL --- */
+    .get-in-touch-footer {
+        padding: 3rem 1rem; /* Kurangi padding di layar sangat kecil */
+    }
+
+    .get-in-touch-footer h2 {
+        font-size: 2rem; /* Kurangi ukuran judul */
+    }
+
+    .get-in-touch-footer p {
+        font-size: 0.9rem; /* Kurangi ukuran paragraf */
+    }
+
+    .footer-social-icons a {
+        width: 40px; /* Kecilkan ukuran ikon */
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .get-in-touch-footer .contact-card {
+        padding: 1.2rem 1.5rem; /* Kurangi padding kartu */
+        flex-direction: column; /* Ikon dan teks kartu bisa ditumpuk */
+        gap: 0.5rem;
+    }
+
+    .get-in-touch-footer .contact-card i {
+        font-size: 1.5rem;
+    }
+
+    .get-in-touch-footer .contact-card span {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+.donation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.donation-table th, .donation-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.donation-table th {
+  background: #ff6b35;
+  color: white;
+  font-weight: bold;
+}
+
+.donation-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
