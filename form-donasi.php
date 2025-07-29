@@ -139,5 +139,27 @@ if ($campaign_id > 0) {
             <a class="back-link" href="donasi.php">← Kembali ke Donasi</a>
         <?php endif; ?>
     </div>
+    <footer class="get-in-touch-footer">
+    <div class="footer-inner-container">
+      <div class="footer-left-content">
+        <h2>Yuk, Sapa GotongID!</h2>
+        <p>Punya pertanyaan, ide kolaborasi, atau ingin tahu lebih lanjut tentang GotongID? Kami siap mendengarkan. Mari bersama membangun dampak positif!</p>
+        <div class="footer-social-icons">
+          <a href="https://www.instagram.com/gotongid" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@gotongid" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-right-cards">
+        <div class="contact-card">
+          <i class="fas fa-globe"></i>
+          <span><a href="https://www.gotongid.com" target="_blank" class="footer-link">www.gotongid.com</a></span>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <span><a href="mailto:hallogotongid@gmail.com" class="footer-link">hallogotongid@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
