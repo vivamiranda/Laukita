@@ -1,6 +1,7 @@
 <?php
 include 'koneksi.php';
 
+
 $campaign_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $campaign = null;
 
@@ -131,21 +132,6 @@ if ($campaign_id > 0) {
                 <strong>Target:</strong> Rp <?php echo number_format($campaign['target_amount'], 0, ',', '.'); ?>
             </div>
 
-            <form action="proses-donasi.php" method="POST">
-                <input type="hidden" name="campaign_id" value="<?php echo $campaign_id; ?>">
-
-                <label for="amount">Jumlah Donasi (Rp)</label>
-                <input type="number" name="amount" required min="1000" placeholder="Minimal Rp 1.000">
-
-                <div class="anonymous-check">
-                    <label><input type="checkbox" name="is_anonymous"> Donasi sebagai anonim</label>
-                </div>
-
-                <label for="message">Pesan (Opsional)</label>
-                <textarea name="message" rows="4" placeholder="Tuliskan pesan dukungan Anda..."></textarea>
-
-                <button type="submit">Kirim Donasi</button>
-            </form>
             <hr style="margin: 3rem 0;" />
 
             <section class="alternatif-donasi">

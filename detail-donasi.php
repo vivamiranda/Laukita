@@ -142,6 +142,55 @@ if (isset($_GET['id'])) {
         .donation-table th {
             background-color: #f4f4f4;
         }
+
+        .form-donasi-section h2 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        .form-donasi-section {
+            margin-top: 3rem;
+            background: #fff8f4;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-donasi-section h2 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .form-donasi-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-donasi-section input,
+        .form-donasi-section textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-donasi-section button {
+            padding: 12px;
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-donasi-section button:hover {
+            background: #e55a24;
+        }
+
+
     </style>
 </head>
 <body>
@@ -217,6 +266,24 @@ if (isset($_GET['id'])) {
                 </tbody>
             </table>
         </div>
+         <div class="form-donasi-section">
+                <h2>Formulir Donasi</h2>
+                <form action="proses-donasi.php" method="POST">
+                    <?php if (isset($campaign['campaign_id'])): ?>
+                        <input type="hidden" name="campaign_id" value="<?= htmlspecialchars($campaign['campaign_id']); ?>">
+                    <?php endif; ?>
+                    
+                    <label for="amount">Jumlah Donasi (Rp)</label>
+                    <input type="number" name="amount" required min="1000" placeholder="Minimal Rp 1.000">
+
+                    <label><input type="checkbox" name="is_anonymous"> Donasi sebagai anonim</label>
+
+                    <label for="message">Pesan (Opsional)</label>
+                    <textarea name="message" rows="4" placeholder="Tuliskan pesan dukungan Anda..."></textarea>
+
+                    <button type="submit">Kirim Donasi</button>
+                </form>
+            </div>
     <?php else: ?>
         <h2 style="color: #ff6b35;">Daftar Kampanye Donasi</h2>
         <div class="campaign-grid">
@@ -238,6 +305,7 @@ if (isset($_GET['id'])) {
                     <a href="?id=<?php echo $c['campaign_id']; ?>">Lihat Donasi</a>
                 </div>
             </div>
+
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
