@@ -15,13 +15,12 @@
     }
 
     .page-title {
-      padding: 5.5rem 1rem 3rem; /* atas ditambah biar turun */
-      margin-top: 60px; /* ini membantu kalau navbar fixed */
+      padding: 5.5rem 1rem 3rem;
+      margin-top: 60px;
       background: linear-gradient(to right, #ff6b35, #ff9d5c);
       color: white;
       text-align: center;
     }
-
 
     .page-title h1 {
       margin: 0;
@@ -175,19 +174,22 @@
             if ($progress > 100) $progress = 100;
       ?>
         <div class="cause-card">
-          <div class="img-placeholder" style="background-image: url('<?php echo htmlspecialchars($row["image_url"]); ?>');"></div>
-          <div class="card-body">
-            <h3><?php echo htmlspecialchars($row["campaign_name"]); ?></h3>
-            <p><?php echo htmlspecialchars(substr($row["description"], 0, 100)) . '...'; ?></p>
+          <a href="deskripsi-kampanye.php?id=<?php echo $row["campaign_id"]; ?>" style="color: inherit; text-decoration: none;">
+            <div class="img-placeholder" style="background-image: url('<?php echo htmlspecialchars($row["image_url"]); ?>');"></div>
+            <div class="card-body">
+              <h3><?php echo htmlspecialchars($row["campaign_name"]); ?></h3>
+              <p><?php echo htmlspecialchars(substr($row["description"], 0, 100)) . '...'; ?></p>
 
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: <?php echo $progress; ?>%;"></div>
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: <?php echo $progress; ?>%;"></div>
+              </div>
+
+              <div class="donation-stats">
+                <b>Rp <?php echo number_format($row["current_amount"], 0, ',', '.'); ?></b> dari <b>Rp <?php echo number_format($row["target_amount"], 0, ',', '.'); ?></b>
+              </div>
             </div>
-
-            <div class="donation-stats">
-              <b>Rp <?php echo number_format($row["current_amount"], 0, ',', '.'); ?></b> dari <b>Rp <?php echo number_format($row["target_amount"], 0, ',', '.'); ?></b>
-            </div>
-
+          </a>
+          <div style="padding: 0 1.2rem 1.2rem;">
             <a href="form-donasi.php?id=<?php echo $row["campaign_id"]; ?>" class="btn-details">Berikan Donasi</a>
           </div>
         </div>

@@ -107,6 +107,21 @@ if ($campaign_id > 0) {
     </style>
 </head>
 <body class="donasi-page">
+    <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="gambar/Logo U.png" alt="GotongID Logo">
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="./index.php">Beranda</a></li>
+          <li><a href="./donasi.php" class="active">Donasi</a></li>
+          <li><a href="tentang-kami.php">Tentang Kami</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
     <div class="donation-container">
         <?php if ($campaign): ?>
             <h2>Donasi untuk "<?php echo htmlspecialchars($campaign['campaign_name']); ?>"</h2>
@@ -131,7 +146,33 @@ if ($campaign_id > 0) {
 
                 <button type="submit">Kirim Donasi</button>
             </form>
-            
+            <hr style="margin: 3rem 0;" />
+
+            <section class="alternatif-donasi">
+            <h2>Alternatif Pembayaran Donasi</h2>
+            <p>Jika Anda lebih nyaman melakukan donasi dengan cara lain, silakan pilih salah satu opsi di bawah ini:</p>
+
+            <div class="alternatif-container">
+
+                <!-- ✅ QRIS -->
+                <div class="alternatif-card">
+                <h3>QRIS</h3>
+                <img src="gambar/qr.png" alt="QRIS GotongID" class="qris-image" />
+                <p>Scan kode QR di atas menggunakan aplikasi pembayaran digital seperti GoPay, OVO, Dana, ShopeePay, dll.</p>
+                </div>
+
+                <!-- ✅ TRANSFER BANK -->
+                <div class="alternatif-card">
+                <h3>Transfer Bank</h3>
+                <p><strong>Bank:</strong> BCA</p>
+                <p><strong>No. Rekening:</strong> 1234567890</p>
+                <p><strong>Atas Nama:</strong> Yayasan GotongID Indonesia</p>
+                <p>Setelah melakukan transfer, mohon konfirmasi melalui WhatsApp: <strong>0812-3456-7890</strong> atau kirim bukti ke <a href="mailto:hallogotongid@gmail.com">hallogotongid@gmail.com</a>.</p>
+                </div>
+
+            </div>
+            </section>
+
  
             <a class="back-link" href="donasi.php">← Kembali ke Daftar Kampanye</a>
         <?php else: ?>
